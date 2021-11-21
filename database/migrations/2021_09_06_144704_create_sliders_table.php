@@ -22,7 +22,7 @@ class CreateSlidersTable extends Migration
             $table->string('image')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->integer('order')->default(1);
-            $table->boolean('status', 0,1)->default(1);
+            $table->boolean('publish', 0,1)->default(1);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

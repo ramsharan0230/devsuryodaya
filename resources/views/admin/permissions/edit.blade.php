@@ -1,15 +1,36 @@
 @extends('layouts.app-master')
+@section('title', 'Service Create')
+@section('bradcrumb')
+<x-admin-bradcrumb >
+    <x-slot name="mainTitle"> Service</x-slot>
+    <x-slot name="subTitle"> Create</x-slot>
+</x-admin-bradcrumb>
+@endsection
 
 @section('content')
-    <div class="bg-light p-4 rounded">
-        <h2>Edit permission</h2>
-        <div class="lead">
-            Editing permission.
-        </div>
+<div class="row">
+    <div class="col-sm-8">
+        <div class="box box-bordered border-primary">
+            <div class="box-header with-border">
+              <h4 class="box-title"> Service</h4>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
 
-        <div class="container mt-4">
+				@if (count($errors) > 0)
+				<div class="alert alert-danger message">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<ul>
+						@foreach($errors->all() as $error)
+						<li>{{$error}}</li>
+						@endforeach
+					</ul>
+				</div>
+				@endif
 
-            <form method="POST" action="{{ route('permissions.update', $permission->id) }}">
+            <form method="POST" action="{{ route('admin.permissions.update', $permission->id) }}">
                 @method('patch')
                 @csrf
                 <div class="mb-3">
@@ -29,6 +50,7 @@
                 <a href="{{ route('admin.permissions.index') }}" class="btn btn-default">Back</a>
             </form>
         </div>
-
+        </div>
     </div>
+</div>
 @endsection
