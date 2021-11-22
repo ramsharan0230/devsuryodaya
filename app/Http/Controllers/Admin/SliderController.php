@@ -53,7 +53,7 @@ class SliderController extends Controller
             $value['image']=$image;
         }
         $this->slider->create($value);
-        return redirect()->route('admin.slider.index')->with('message','Testimonial Added Successfully');
+        return redirect()->route('admin.slider.index')->with('message','Slider Added Successfully');
     }
 
     /**
@@ -95,7 +95,7 @@ class SliderController extends Controller
             $value['image']=$image;
         }
         $this->slider->update($value,$id);
-        return redirect()->route('admin.slider.index')->with('message','Testimonial Updated Successfully');
+        return redirect()->route('admin.slider.index')->with('message','Slider Updated Successfully');
     }
 
     /**
@@ -118,7 +118,7 @@ class SliderController extends Controller
             }
         }
         $this->slider->destroy($id);
-        return redirect()->route('admin.slider.index')->with('message','Testimonial Deleted Successfully');
+        return redirect()->route('admin.slider.index')->with('message','Slider Deleted Successfully');
     }
 
     public function imageProcessing($image){

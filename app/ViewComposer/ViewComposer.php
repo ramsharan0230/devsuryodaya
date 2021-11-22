@@ -33,7 +33,7 @@ class ViewComposer
     {
         
         $sliders = $this->slider->where('publish', 1)->limit(10)->orderBy('created_at', 'DESC')->get();
-        $services = $this->service->limit(6)->where('publish', 1)->orderBy('created_at', 'DESC')->get();
+        $mainServices = $this->service->limit(6)->where('publish', 1)->orderBy('created_at', 'DESC')->get();
         $clients = $this->client->limit(6)->where('publish', 1)->orderBy('created_at', 'DESC')->get();
         $sliders = $this->slider->where('publish', 1)->limit(10)->orderBy('created_at', 'DESC')->get();
         $products = $this->product->where('publish', 1)->limit(10)->orderBy('created_at', 'DESC')->get();
@@ -47,7 +47,7 @@ class ViewComposer
             'products' => $products,
             'siteSettings'=>$siteSettings,
             'categories' => $categories,
-            'services' => $services,
+            'mainServices' => $mainServices,
             'clients' => $clients,
             'seo_siteSettings'=>$seo_siteSettings
         ]);

@@ -28,7 +28,7 @@ class CreateBlogsTable extends Migration
             $table->string('meta_title')->nullable();
             $table->text('meta_description')->nullable();
             
-            $table->boolean('status', 0,1)->default(1);
+            $table->boolean('publish', 0,1)->default(1);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->timestamps();

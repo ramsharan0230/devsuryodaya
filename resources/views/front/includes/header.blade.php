@@ -23,31 +23,27 @@
       <!-- Uncomment below if you prefer to use an image logo -->
        <a href="index.php"><img src="assets/img/logo.jpeg" alt="" class="img-fluid"></a>
     </div>
-
     <nav id="navbar" class="navbar">
       <ul>
         <li><a class="active" href="index.php">Home</a></li>
         <li class="dropdown"><a href="products.php"><span>Products</span> <i class="bi bi-chevron-down"></i></a>
           <ul>
-            <li class="dropdown"><a href="#"><span>Respiratory</span> <i class="bi bi-chevron-right"></i></a>
+            @foreach ($categories as $category)
+            <li class="dropdown"><a href="#"><span> {{ $category->name}} </span> <i class="bi bi-chevron-right"></i></a>
+              @if(count($category->subcategories) > 0)
               <ul>
-                <li><a href="#">Respiratory 1</a></li>
-                <li><a href="#">Respiratory 2</a></li>
-                <li><a href="#">Respiratory 3</a></li>
-                <li><a href="#">Respiratory 4</a></li>
-                <li><a href="catalog.php">Catalog</a></li>
+                @foreach ($category->subcategories as $subcategory)
+                  <li><a href="#">{{ $subcategory->name}}</a></li>
+                @endforeach
               </ul>
+              @endif
             </li>
-            <li><a href="#">Suction Therapy</a></li>
-            <li><a href="#">Aerosal Tharapy</a></li>
-            <li><a href="#">CPAP Tharapy</a></li>
-            <li><a href="#">Ventilation Tharapy</a></li>
-            <li><a href="#">Diagnostiscs</a></li>
+            @endforeach
+            
           </ul>
         </li>
         <li class="dropdown"><a href="service.php"><span>Services</span> <i class="bi bi-chevron-down"></i></a>
           <ul>
-            
             <li><a href="#">Suction Therapy</a></li>
             <li><a href="#">Aerosal Tharapy</a></li>
             <li><a href="#">CPAP Tharapy</a></li>
@@ -55,10 +51,10 @@
             <li><a href="#">Diagnostiscs</a></li>
           </ul>
         </li>
-        <li><a href="about.php">About Us</a></li>
-        <li><a href="blog.php">Blog</a></li>
+        <li><a href="{{ route('about') }}">About Us</a></li>
+        <li><a href="{{ route('blogs') }}">Blog</a></li>
         
-        <li><a href="contact.php">Contact</a></li>
+        <li><a href="{{ route('blogs') }}">Contact</a></li>
          <li><div class="input-group ts-bar">
         <input type="text" class="form-control" placeholder="Search product.." aria-label="Recipient's username" aria-describedby="button-addon2">
         <button class="btn btn-outline-primary" type="button" id="button-addon2"><i class="bi bi-search"></i></button>

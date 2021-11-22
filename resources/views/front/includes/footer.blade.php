@@ -8,11 +8,11 @@
         <div class="col-lg-3 col-md-6 footer-contact">
           <h3>Suryodaya</h3>
           <p>
-            A108 Ktwr Street <br>
-            Kathmandu, NY 535022<br>
-            Nepal <br><br>
-            <strong>Phone:</strong> +977 88 55488 55<br>
-            <strong>Email:</strong> info@example.com<br>
+            {{$siteSettings->address}} <br>
+            {{$siteSettings->location}}
+            <br><br>
+            <strong>Phone:</strong> {{ $siteSettings->landline }}<br>
+            <strong>Email:</strong> {{ $siteSettings->email  }}<br>
           </p>
         </div>
 
@@ -30,20 +30,30 @@
         <div class="col-lg-3 col-md-6 footer-links">
           <h4>Our Services</h4>
           <ul>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Mobility</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Patient Room</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Bath Safety</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Kids</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Nemo Enim</a></li>
+            @forelse ($mainServices as $service)
+              <li><i class="bx bx-chevron-right"></i> <a href="#">{{ $service->title }}</a></li>
+            @empty
+              <li><i class="bx bx-chevron-right"></i> <a href="#">No Service Found</a></li>
+            @endforelse
           </ul>
         </div>
 
         <div class="col-lg-4 col-md-6 footer-newsletter">
           <h4>Join Our Newsletter</h4>
           <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-          <form action="" method="post">
-            <input type="email" name="email"><input type="submit" value="Subscribe">
-          </form>
+            @if(Session::has('message'))
+              <div class="alert alert-success alert-dismissible message">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                {!! Session::get('message') !!}
+              </div>
+            @endif
+            
+            <form action="{{ route('subscription') }}" method="post">
+              {{csrf_field()}}
+              <input type="email" name="email" placeholder="Enter your mail ..."><input type="submit" value="Subscribe">
+            </form>
         </div>
 
       </div>

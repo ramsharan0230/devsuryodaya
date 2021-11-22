@@ -49,7 +49,7 @@ class BlogController extends Controller
 
         $value=$request->except('image','publish');
 
-        $value['status']=$request->publish =="on"? 1 : 0 ;
+        $value['publish']=$request->publish =="on"? 1 : 0 ;
         
         if($request->image){
             $image=$this->imageProcessing($request->file('image'));
@@ -92,7 +92,7 @@ class BlogController extends Controller
         $this->validate($request, $this->rulesForUpdate());
         $value=$request->except('image','publish');
 
-        $value['status']=$request->publish =="on"? 1 : 0 ;
+        $value['publish']=$request->publish =="on"? 1 : 0 ;
 
         if($request->hasFile('image')){
             $image=$this->blog->find($id);

@@ -31,10 +31,15 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('/', 'HomeController@index')->name('home');
         Route::get('/about', 'PagesController@about')->name('about');
         Route::get('/contact', 'PagesController@contact')->name('contact');
+        Route::post('/contact', 'PagesController@postContact')->name('contact');
+        Route::post('/subscription', 'PagesController@subscription')->name('subscription');
         Route::get('/products', 'PagesController@products')->name('products');
         Route::get('/product', 'PagesController@products')->name('products');
         Route::get('/services', 'PagesController@services')->name('services');
-        Route::get('/service/{slug}', 'PagesController@service')->name('service');
+        Route::get('/service-detail/{slug}', 'PagesController@serviceDetail')->name('service-detail');
+
+        Route::get('/blogs', 'PagesController@blogs')->name('blogs');
+        Route::get('/blog-detail/{slug}', 'PagesController@blogDetail')->name('blog-detail');
 
         Route::get('/categories', 'PagesController@categories')->name('categories');
         Route::get('/category/{slug}', 'PagesController@subcategory')->name('category');

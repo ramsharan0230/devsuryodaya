@@ -19,7 +19,7 @@
     <link href="{{ asset('front/assets/vendor/multislider/css/custom.css') }}" rel="stylesheet">
   
     <!-- Template Main CSS File -->
-    <link href="{{ asset('front/assets/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
 	@stack('styles')
      
 </head>
@@ -45,7 +45,7 @@
     <script src="{{ asset('front/assets/vendor/multislider/js/jquery-2.2.4.min.js') }}"></script>
     <script src="{{ asset('front/assets/vendor/multislider/js/multislider.min.js') }}"></script>
     <!-- Template Main JS File -->
-    <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="{{ asset('front/assets/js/main.js') }}"></script>
 	@stack('scripts')
 	
 </body>
