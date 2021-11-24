@@ -9,6 +9,7 @@ use App\Models\Subcategory;
 use App\Models\Service;
 use App\Models\SiteSetting;
 use App\Models\Slider;
+use App\Models\Video;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
@@ -19,7 +20,7 @@ class ViewComposer
     private $site_setting;
 
     public function __construct(Slider $slider, Product $product, SiteSetting $site_setting, 
-    Category $category, Service $service, Client $client)
+    Category $category, Service $service, Client $client, Video $video)
     {
         $this->slider = $slider;
         $this->product = $product;
@@ -27,6 +28,7 @@ class ViewComposer
         $this->category = $category;
         $this->service = $service;
         $this->client = $client;
+        $this->video = $video;
     }
 
     public function compose(View $view)
@@ -34,6 +36,7 @@ class ViewComposer
         
         $sliders = $this->slider->where('publish', 1)->limit(10)->orderBy('created_at', 'DESC')->get();
         $mainServices = $this->service->limit(6)->where('publish', 1)->orderBy('created_at', 'DESC')->get();
+        $mainVideos = $this->video->where('publish', 1)->orderBy('created_at', 'DESC')->get();
         $clients = $this->client->limit(6)->where('publish', 1)->orderBy('created_at', 'DESC')->get();
         $sliders = $this->slider->where('publish', 1)->limit(10)->orderBy('created_at', 'DESC')->get();
         $products = $this->product->where('publish', 1)->limit(10)->orderBy('created_at', 'DESC')->get();
@@ -48,6 +51,7 @@ class ViewComposer
             'siteSettings'=>$siteSettings,
             'categories' => $categories,
             'mainServices' => $mainServices,
+            'mainVideos' => $mainVideos,
             'clients' => $clients,
             'seo_siteSettings'=>$seo_siteSettings
         ]);

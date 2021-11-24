@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\CatalogController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\VideoController;
+use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\ContactController;
 
 /*
@@ -32,9 +33,14 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('/about', 'PagesController@about')->name('about');
         Route::get('/contact', 'PagesController@contact')->name('contact');
         Route::post('/contact', 'PagesController@postContact')->name('contact');
+        Route::get('/catalog', 'PagesController@catalogs')->name('catalog');
         Route::post('/subscription', 'PagesController@subscription')->name('subscription');
+
         Route::get('/products', 'PagesController@products')->name('products');
-        Route::get('/product', 'PagesController@products')->name('products');
+        Route::get('/product-detail/{slug}', 'PagesController@productDetail')->name('product-detail');
+        Route::get('/product-search', 'PagesController@productSearch')->name('product-search');
+        
+
         Route::get('/services', 'PagesController@services')->name('services');
         Route::get('/service-detail/{slug}', 'PagesController@serviceDetail')->name('service-detail');
 
@@ -44,7 +50,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('/categories', 'PagesController@categories')->name('categories');
         Route::get('/category/{slug}', 'PagesController@subcategory')->name('category');
 
-        Route::get('/catalogs', 'PagesController@catalogs')->name('catalogs');
+        Route::get('/videos', 'PagesController@videos')->name('videos');
+        Route::get('/video/{slug}', 'PagesController@videoDetail')->name('video');
     });
 
     Route::group(['middleware' => ['guest']], function() {
@@ -220,6 +227,17 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::put('/{id}/update', [VideoController::class, 'update'])->name('update');
         Route::delete('/{id}/delete', [VideoController::class, 'destroy'])->name('destroy');
     });
+
+    //video
+    Route::group(['prefix' => 'about', 'as'=>'about.'], function() {
+        Route::get('/', [AboutController::class, 'index'])->name('index'); 
+        Route::get('/create', [AboutController::class, 'create'])->name('create'); 
+        Route::post('/store', [AboutController::class, 'store'])->name('store'); 
+        Route::get('/{id}/edit', [AboutController::class, 'edit'])->name('edit'); 
+        Route::put('/{id}/update', [AboutController::class, 'update'])->name('update');
+        Route::delete('/{id}/delete', [AboutController::class, 'destroy'])->name('destroy');
+    });
+
     // Contact
     Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
     Route::delete('contact/{id}/destroy', [ContactController::class, 'destroy'])->name('contact.destroy');

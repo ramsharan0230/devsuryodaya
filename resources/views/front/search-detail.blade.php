@@ -1,5 +1,5 @@
 @extends('layouts.front-master')
-@section('title', 'Products')
+@section('title', $search)
 @section('styles')
 <style>
     .ArticleBody{
@@ -31,7 +31,7 @@
       <div class="container">
 
         <div class="row">
-          @forelse ($products as $item)
+          @forelse ($searchedItems as $item)
           <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
             <div class="hovereffect">
                 <img class="img-responsive" src="{{ asset('images/product').'/'.$item->image }}" alt="">

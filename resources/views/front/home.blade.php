@@ -132,46 +132,57 @@
         </div>
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" data-aos="fade-up">
           <div class="carousel-inner">
-            <div class="carousel-item active">
+            @forelse ($mainServices as $key=>$item)
+            <div class="carousel-item {{ $key==0?"active":""}}">
               <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                   <div class="latest-items aos-init aos-animate">
-                    <a href="product-detail.php"> <img src="/front/assets/img/igo2.jpg"></a>
-                    <h4 class="title"><a href="product-detail.php">iGo2</a></h4>
-                    <strong>Protable Oxygen Concentrator</strong>
-                    <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+                    <a href="{{ route('service-detail', $item->slug) }}"> <img src="{{ asset('images/service').'/'.$item->image }}"></a>
+                    <h4 class="title"><a href="{{ route('service-detail', $item->slug) }}">{{ $item->title }}</a></h4>
+                    <strong>{{ $item->title }}</strong>
+                    <p class="description">
+                      {{ $item->description }}
+                    </p>
                   </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                   <div class="latest-items aos-init aos-animate">
-                    <a href="product-detail.php"> <img src="/front/assets/img/ifill1280.jpg"></a>
-                    <h4 class="title"><a href="product-detail.php">iGo2</a></h4>
-                    <strong>Protable Oxygen Concentrator</strong>
-                    <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+                    <a href="{{ route('service-detail', $item->slug) }}"> <img src="/front/assets/img/ifill1280.jpg"></a>
+                    <h4 class="title"><a href="{{ route('service-detail', $item->slug) }}">iGo2</a></h4>
+                    <strong>{{ $item->title }}</strong>
+                    <p class="description">
+                      {{ $item->description }}
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
+            @empty
+                
+            @endforelse
+            
+
             <div class="carousel-item">
               <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                   <div class="latest-items aos-init aos-animate">
-                    <a href="product-detail.php"> <img src="/front/assets/img/compact525.jpg"></a>
-                    <h4 class="title"><a href="product-detail.php">iGo2</a></h4>
+                    <a href="{{ route('service-detail', $item->slug) }}"> <img src="/front/assets/img/compact525.jpg"></a>
+                    <h4 class="title"><a href="{{ route('service-detail', $item->slug) }}">iGo2</a></h4>
                     <strong>Protable Oxygen Concentrator</strong>
                     <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
                   </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                   <div class="latest-items aos-init aos-animate">
-                    <a href="product-detail.php"> <img src="/front/assets/img/igo2.jpg"></a>
-                    <h4 class="title"><a href="product-detail.php">iGo2</a></h4>
+                    <a href="{{ route('service-detail', $item->slug) }}"> <img src="/front/assets/img/igo2.jpg"></a>
+                    <h4 class="title"><a href="{{ route('service-detail', $item->slug) }}">iGo2</a></h4>
                     <strong>Protable Oxygen Concentrator</strong>
                     <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
                   </div>
                 </div>
               </div>
             </div>
+
             <div class="carousel-item">
               <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
@@ -226,50 +237,7 @@
             </div>
           </div>
         </div> 
-        <div id="exampleSlider">
-           <div class="MS-content">
-               <div class="item">
-                   <iframe width="100%" height="315" src="https://www.youtube.com/embed/HRcJEtAuK48" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                   <button class="video-btn" data-bs-toggle="modal" data-src="https://www.youtube.com/embed/HRcJEtAuK48" data-bs-target="#myModal">
-                   <i class="bi bi-play-circle-fill"></i>
-                  </button>
-               </div>
-               <div class="item">
-                   <iframe width="100%" padding-right="10px" height="315" src="https://www.youtube.com/embed/HRcJEtAuK48" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                   <button class="video-btn" data-bs-toggle="modal" data-src="https://www.youtube.com/embed/HRcJEtAuK48" data-bs-target="#myModal">
-                   <i class="bi bi-play-circle-fill"></i>
-                  </button>
-               </div>
-               <div class="item">
-                   <iframe width="100%" padding-right="10px" height="315" src="https://www.youtube.com/embed/HRcJEtAuK48" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                   <button class="video-btn" data-bs-toggle="modal" data-src="https://www.youtube.com/embed/HRcJEtAuK48" data-bs-target="#myModal">
-                   <i class="bi bi-play-circle-fill"></i>
-                  </button>
-               </div>
-               <div class="item">
-                   <iframe width="100%" padding-right="10px" height="315" src="https://www.youtube.com/embed/HRcJEtAuK48" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                   <button class="video-btn" data-bs-toggle="modal" data-src="https://www.youtube.com/embed/HRcJEtAuK48" data-bs-target="#myModal">
-                   <i class="bi bi-play-circle-fill"></i>
-                  </button>
-               </div>
-               <div class="item">
-                   <iframe width="100%" padding-right="10px" height="315" src="https://www.youtube.com/embed/HRcJEtAuK48" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                   <button class="video-btn" data-bs-toggle="modal" data-src="https://www.youtube.com/embed/HRcJEtAuK48" data-bs-target="#myModal">
-                   <i class="bi bi-play-circle-fill"></i>
-                  </button>
-               </div>
-               <div class="item">
-                   <iframe width="100%" padding-right="10px" height="315" src="https://www.youtube.com/embed/HRcJEtAuK48" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                   <button class="video-btn" data-bs-toggle="modal" data-src="https://www.youtube.com/embed/HRcJEtAuK48" data-bs-target="#myModal">
-                   <i class="bi bi-play-circle-fill"></i>
-                  </button>
-               </div>
-           </div>
-           <div class="MS-controls">
-               <button class="MS-left"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
-               <button class="MS-right"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
-           </div>
-       </div>
+        @include('front.includes.videos')
       </div>
     </section>
 

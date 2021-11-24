@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Repositories\Video\VideoRepository;
 use Illuminate\Support\Facades\Input as input;
-use BenSampo\Embed\Rules\EmbeddableUrl;
 use Redirect;
 
 class VideoController extends Controller
@@ -77,7 +76,7 @@ class VideoController extends Controller
         $rules =  [
             'title' => 'required|max:199',
             'order'=> 'required|numeric',
-            'link' => ['required', new EmbeddableUrl],
+            'link' => 'required|max:199',
             'description' => 'sometimes|max:10000'
         ];
 

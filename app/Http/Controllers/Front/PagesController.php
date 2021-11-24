@@ -10,6 +10,8 @@ use App\Models\Blog;
 use App\Models\Contact;
 use App\Models\Subscription;
 use App\Models\Product;
+use App\Models\Video;
+use App\Models\Catalog;
 use Illuminate\Support\Facades\Validator;
 
 class PagesController extends Controller
@@ -64,17 +66,47 @@ class PagesController extends Controller
         return view('front.products', compact('products'));
     }
 
+    public function productDetail($slug){
+        $product = Product::where('slug', $slug)->first();
+        if(!$product)
+            return view('front.page-not-found'); 
+
+        $varients = [];
+        $tech_details = [];
+        
+        return view('front.product-detail', compact('product', 'varients', 'tech_details'));
+    }
+
+    public function productSearch(Request $request){
+        $search = $request->search;
+        $searchedItems = Product::where('publish', 1)->where(function($query) use ($search) {
+            $query->where('title', 'LIKE', '%'.$search.'%')
+                ->orWhere('description', 'LIKE', '%'.$search.'%')
+                ->orWhere('subtitle', 'LIKE', '%'.$search.'%')
+                ->orWhere('short_description', 'LIKE', '%'.$search.'%');
+        })->get();
+
+        return view('front.search-detail', compact('searchedItems', 'search'));
+    }
+
     public function blogs(){
-        $blogs = Blog::where('publish', 1)->get();
-        return view('front.blogs', compact('blogs'));
+        $blogs = Blog::where('publish', 1)->orderBy('order', 'desc')->get();
+        $recentBlogs = Blog::where('publish', 1)->orderBy('created_at', 'desc')->get();
+        return view('front.blogs', compact('blogs', 'recentBlogs'));
     }
 
     public function blogDetail($slug){
-        $service = Blog::where('slug', $slug)->first();
-        if(!$service)
+        $blog = Blog::where('slug', $slug)->first();
+        if(!$blog)
             return view('front.page-not-found'); 
-            
-        return view('front.blog-detail', compact('blog'));
+        
+        $title = $blog->title;
+        $reletedBlogs = Blog::where('publish', 1)->whereNotIn('id', [$blog->id])->where(function($query) use ($title) {
+            $query->where('title', 'LIKE', '%'.$title.'%')
+                ->orWhere('description', 'LIKE', '%'.$title.'%')
+                ->orWhere('short_description', 'LIKE', '%'.$title.'%');
+        })->take(4)->get();
+        return view('front.blog-detail', compact('blog', 'reletedBlogs'));
     }
 
     public function services(){
@@ -87,11 +119,14 @@ class PagesController extends Controller
         if(!$service)
             return view('front.page-not-found'); 
 
-        return view('front.service-detail', compact('service'));
+        $title = $service->title;
+        $reletedProducts = Product::where('publish', 1)->where('service_id', '=', $service->id)->take(4)->get();
+        return view('front.service-detail', compact('service','reletedProducts'));
     }
 
     public function catalogs(){
-        return view('front.home');
+        $catalogs = Catalog::where('publish', 1)->get();
+        return view('front.catalogs', compact('catalogs'));
     }
 
     public function categories(){
@@ -100,6 +135,12 @@ class PagesController extends Controller
 
     public function subcategory($slug){
         return $slug;
+    }
+
+    public function videos(){
+        $videos = Video::where('publish', 1)->orderBy('order', 'desc')->get();
+        $recentVideos = Video::where('publish', 1)->orderBy('created_at', 'desc')->get();
+        return view('front.videos', compact('videos', 'recentVideos'));
     }
 
 

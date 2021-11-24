@@ -25,20 +25,17 @@
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
             <div class="items-detail " data-aos="fade-up">
-               <img src="assets/img/igo2.jpg">
+               <img src="{{ asset('images/service').'/'.$service->image }}">
             </div>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
             <div class="items-detail " data-aos="fade-up">
               <h2>{{ $service->title }}</h2>
-              <strong>Protable Oxygen Concentrator</strong>
-              <p class="description">The groundbreaking iGo2 Portable Oxygen Concentrator (POC) has created a new class of product – the auto-adjusting POC. This first-of-its-kind POC uses patented SmartDose Technology. Now you can enjoy life more freely without worrying about changing oxygen settings during activity. This gives you the peace of mind and the freedom you have been looking for.
-              The groundbreaking iGo2 Portable Oxygen Concentrator (POC) has created a new class of product – the auto-adjusting POC. This first-of-its-kind POC uses patented SmartDose Technology. Now you can enjoy life more freely without worrying about changing oxygen settings during activity. This gives you the peace of mind and the freedom you have been looking for.
-            The groundbreaking iGo2 Portable Oxygen Concentrator (POC) has created a new class of product – the auto-adjusting POC. This first-of-its-kind POC uses patented SmartDose Technology. Now you can enjoy life more freely without worrying about changing oxygen settings during activity. This gives you the peace of mind and the freedom you have been looking for.
-            <br><br>
-          This gives you the peace of mind and the freedom you have been looking for.
-            The groundbreaking iGo2 Portable Oxygen Concentrator (POC) has created a new class of product – the auto-adjusting POC. This first-of-its-kind POC uses patented SmartDose Technology. Now you can enjoy life more freely without worrying about changing oxygen settings during activity. This gives you the peace of mind and the freedom you have been looking for.</p>
-              
+              <time> <strong>{{ $service->created_at }}</strong></time>
+              <p class="description">
+                  {!! $service->description !!}
+              </p><br><br>
+          
             </div>
           </div>
         </div>
@@ -52,50 +49,22 @@
           <h2>Service Related Products</h2>
         </div>
         <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-            <div class="product-box">
-              <div class="hovereffect">
-                  <img class="img-responsive" src="assets/img/rs1.jpg" alt="">
-                  <div class="overlay">
-                     <h2>Oxygen Tharapay</h2>
-                     <a class="info" href="listing.php">Know More</a>
-                  </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-            <div class="product-box">
-              <div class="hovereffect">
-                <img class="img-responsive" src="assets/img/rs2.jpg" alt="">
-                <div class="overlay">
-                   <h2>Suction Therapy</h2>
-                   <a class="info" href="listing.php">Know More</a>
+          @forelse ($reletedProducts as $releted)
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+              <div class="product-box">
+                <div class="hovereffect">
+                    <img class="img-responsive" src="{{ asset('images/product').'/'.$releted->image }}" alt="">
+                    <div class="overlay">
+                      <h2>{{ $releted->title }}</h2>
+                      <a class="info" href="{{ route('product-detail', $releted->slug) }}">Know More</a>
+                    </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-            <div class="product-box">
-              <div class="hovereffect">
-                <img class="img-responsive" src="assets/img/rs3.jpg" alt="">
-                <div class="overlay">
-                   <h2>Aerosal Tharapy</h2>
-                   <a class="info" href="listing.php">Know More</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-            <div class="product-box">
-              <div class="hovereffect">
-                <img class="img-responsive" src="assets/img/rs4.jpg" alt="">
-                <div class="overlay">
-                   <h2>CPAP Tharapy</h2>
-                   <a class="info" href="listing.php">Know More</a>
-                </div>
-              </div>
-            </div>
-          </div>
+          @empty
+              <p>No releted blog found. </p>
+          @endforelse
+
         </div>
       </div>
     </section><!-- Catalog Download -->

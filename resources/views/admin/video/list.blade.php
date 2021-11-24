@@ -39,7 +39,15 @@
                         	<td>{{ $key+1 }}</td>
 				            <td>{{ $detail->title }}</td>
 							<td>{{ $detail->slug }}</td>
-							<td>{{ $detail->link }}</td>
+							<td>
+								<div id="exampleSlider">
+									<div class="MS-content">
+										<div class="item">
+											<iframe width="250px" padding-right="10px" height="250px" src="https://www.youtube.com/embed/{{ $detail->link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+										</div>
+									</div>
+								</div>
+							</td>
 							<td>{{ $detail->order }}</td>
 							<td>{!! $detail->description !!}</td>
 				            <td>

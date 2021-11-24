@@ -78,35 +78,16 @@
               <div class="sidebar">
                 <h3 class="sidebar-title">Recent Posts</h3>
                 <div class="sidebar-item recent-posts">
+
+                  @forelse ($recentBlogs as $item)
                   <div class="post-item clearfix">
-                    <img src="assets/img/blog/blog-recent-1.jpg" alt="">
-                    <h4><a href="blog-inner.php">Nihil blanditiis at in nihil autem</a></h4>
-                    <time datetime="2021-01-01">Jan 1, 2021</time>
+                    <img src="{{ asset('images/blog').'/'.$item->image }}" alt="" class="img-fluid">
+                    <h4><a href="{{ route('blog-detail', $item->slug) }}">{{ $item->title }}</a></h4>
+                    <time datetime="{{ $item->published_date }}">{{ $item->published_date }}</time>
                   </div>
-  
-                  <div class="post-item clearfix">
-                    <img src="{{ asset('assets/img/blog/blog-recent-2.jpg')}}" alt="">
-                    <h4><a href="blog-inner.php">Quidem autem et impedit</a></h4>
-                    <time datetime="2021-01-01">Jan 1, 2021</time>
-                  </div>
-  
-                  <div class="post-item clearfix">
-                    <img src="assets/img/blog/blog-recent-3.jpg" alt="">
-                    <h4><a href="blog-inner.php">Id quia et et ut maxime similique occaecati ut</a></h4>
-                    <time datetime="2021-01-01">Jan 1, 2021</time>
-                  </div>
-  
-                  <div class="post-item clearfix">
-                    <img src="assets/img/blog/blog-recent-4.jpg" alt="">
-                    <h4><a href="blog-inner.php">Laborum corporis quo dara net para</a></h4>
-                    <time datetime="2021-01-01">Jan 1, 2021</time>
-                  </div>
-  
-                  <div class="post-item clearfix">
-                    <img src="assets/img/blog/blog-recent-5.jpg" alt="">
-                    <h4><a href="blog-inner.php">Et dolores corrupti quae illo quod dolor</a></h4>
-                    <time datetime="2021-01-01">Jan 1, 2021</time>
-                  </div>
+                  @empty
+                      
+                  @endforelse
   
                 </div><!-- End sidebar recent posts-->
   
