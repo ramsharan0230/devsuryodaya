@@ -228,7 +228,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::delete('/{id}/delete', [VideoController::class, 'destroy'])->name('destroy');
     });
 
-    //video
+    //about
     Route::group(['prefix' => 'about', 'as'=>'about.'], function() {
         Route::get('/', [AboutController::class, 'index'])->name('index'); 
         Route::get('/create', [AboutController::class, 'create'])->name('create'); 
