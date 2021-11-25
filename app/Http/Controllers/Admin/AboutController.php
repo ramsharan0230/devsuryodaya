@@ -22,8 +22,8 @@ class AboutController extends Controller
 
     public function index()
     {
-        $details=$this->about->orderBy('order', 'desc')->first();
-        return view('admin.about.index', compact('details'));
+        $detail=$this->about->first();
+        return view('admin.about.index', compact('detail'));
     }
 
     /**
@@ -33,7 +33,7 @@ class AboutController extends Controller
      */
     public function create()
     {
-        return view('admin.blog.create');
+        return view('admin.about.create');
     }
 
     /**
@@ -46,24 +46,23 @@ class AboutController extends Controller
     {
         $this->validate($request, $this->rules());
 
-        $value=$request->except('image','publish');
+        $value=$request->except('background_image', 'main_image','publish');
 
-        $value['publish']=$request->publish =="on"? 1 : 0 ;
+        $value['publish'] = 1;
         
-        if($request->image){
-            $image=$this->imageProcessing($request->file('image'));
-            $value['image']=$image;
+        if($request->background_image){
+            $image=$this->imageProcessing($request->file('background_image'));
+            $value['background_image']=$image;
         }
-        $this->blog->create($value);
-        DB::table('seo_blogs')->insert([
-            'meta_title'=>$request->title,
-            'meta_description' => is_null($request->description)?$request->title:$request->description,
-            'meta_phrase' => is_null($request->short_description)?$request->title:$request->short_description,
-            'keyword'=> is_null($request->keyword)?$request->title:$request->keyword,
-            'publish'=> 1
-        ]);
 
-        return redirect()->route('admin.blog.index')->with('message','Blog Added Successfully');
+        if($request->main_image){
+            $image=$this->imageProcessing($request->file('main_image'));
+            $value['main_image']=$image;
+        }
+
+        $this->about->create($value);
+
+        return redirect()->route('admin.about.index')->with('message','About Added Successfully');
     }
 
     /**
@@ -74,8 +73,8 @@ class AboutController extends Controller
      */
     public function edit($id)
     {
-        $detail=$this->blog->find($id);
-        return view('admin.blog.edit',compact('detail'));   
+        $detail=$this->about->find($id);
+        return view('admin.about.edit',compact('detail'));   
     }
 
     /**
@@ -87,36 +86,37 @@ class AboutController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $old=$this->blog->find($id);
+        $old=$this->about->find($id);
         $this->validate($request, $this->rulesForUpdate());
-        $value=$request->except('image','publish');
+        $value=$request->except('background_image', 'main_image', 'publish');
 
-        $value['publish']=$request->publish =="on"? 1 : 0 ;
+        $value['publish']= 1;
 
-        if($request->hasFile('image')){
-            $image=$this->blog->find($id);
-            if($image->image){
-                $thumbPath = public_path('images/blog');
-                if((file_exists($thumbPath.'/'.$image->image))){
-                    unlink($thumbPath.'/'.$image->image);
+        if($request->hasFile('background_image')){
+            $image=$this->about->find($id);
+
+            if($image->background_image){
+                $thumbPath = public_path('images/main');
+                if((file_exists($thumbPath.'/'.$image->background_image))){
+                    unlink($thumbPath.'/'.$image->background_image);
                 }
             }
-            $image=$this->imageProcessing($request->file('image'));
-            $value['image']=$image;
+            $image=$this->imageProcessing($request->file('background_image'));
+            $value['background_image']=$image;
+
+            if($image->main_image){
+                $thumbPath = public_path('images/main');
+                if((file_exists($thumbPath.'/'.$image->main_image))){
+                    unlink($thumbPath.'/'.$image->main_image);
+                }
+            }
+            $image=$this->imageProcessing($request->file('main_image'));
+            $value['main_image']=$image;
         }
 
-        $this->blog->update($value,$id);
+        $this->about->update($value,$id);
 
-        DB::table('seo_blogs')->where('id', $id)->update([
-            'meta_title'=>$request->title,
-            'meta_description' => is_null($request->description)?$request->title:$request->description,
-            'meta_phrase' => is_null($request->short_description)?$request->title:$request->short_description,
-            'keyword'=> is_null($request->keyword)?$request->title:$request->keyword,
-            'publish'=> $value['status']
-        ]);
-
-
-        return redirect()->route('admin.blog.index')->with('message','Blog Updated Successfully');
+        return redirect()->route('admin.about.index')->with('message','About Updated Successfully');
     }
 
     /**
@@ -125,28 +125,13 @@ class AboutController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        $value['status'] =0;
-        $this->blog->update($value, $id);
-
-        $image=$this->blog->find($id);
-        if($image->image){
-            $thumbPath = public_path('images/blog');
-            
-            if((file_exists($thumbPath.'/'.$image->image))){
-                unlink($thumbPath.'/'.$image->image);
-            }
-        }
-        $this->blog->destroy($id);
-        return redirect()->route('admin.blog.index')->with('message','Blog Deleted Successfully');
-    }
+    
     public function imageProcessing($image){
        $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
-       $thumbPath = public_path('images/blog');
+       $thumbPath = public_path('images/main');
 
        $img1 = Image::make($image->getRealPath());
-       $img1->fit(856, 642)->save($thumbPath.'/'.$input['imagename']);
+       $img1->save($thumbPath.'/'.$input['imagename']);
        
       
        $destinationPath = public_path('/images');
@@ -156,8 +141,8 @@ class AboutController extends Controller
 
         $rules =  [
             'title' => 'required',
-            'published_date'=>'required|date',
-            'image'=>'required|mimes:jpeg,bmp,png,jpg',
+            'background_image'=>'required|mimes:jpeg,bmp,png,jpg',
+            'main_image'=>'required|mimes:jpeg,bmp,png,jpg',
             'short_description'=>'sometimes|max: 2500',
             'description'=>'sometimes|max:15000'
         ];
@@ -169,9 +154,9 @@ class AboutController extends Controller
 
         $rules =  [
             'title' => 'required',
-            'published_date'=>'required|date',
-            'image'=>'sometimes|mimes:jpeg,bmp,png,jpg',
-            'short_description'=>'sometimes|max: 2500',
+            'short_description'=>'sometimes|max:199',
+            'background_image'=>'sometimes|mimes:jpeg,bmp,png,jpg',
+            'main_image'=>'sometimes|mimes:jpeg,bmp,png,jpg',
             'description'=>'sometimes|max:15000'
         ];
 

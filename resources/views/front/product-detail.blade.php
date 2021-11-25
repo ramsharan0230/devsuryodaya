@@ -34,7 +34,25 @@
                 <p class="description">{{ $product->short_description }}</p>
                 <p class="description">{!! $product->description !!}</p>
             </div>
-            <div class="table-div" data-aos="fade-up">
+
+            @forelse ($product->catalogs as $catalog)
+            <div class="alert alert-info" role="alert">
+                <div class="row">
+                    <div class="col-sm-8">
+                        {{ $catalog->title }}
+                    </div>
+                    <div class="col-sm-4">
+                        <a href="{{ $catalog->catalog_file }}" download class="btn btn-primary btn-sm pull-right"><i class="fa fa-download"></i> Download</a>
+                    </div>
+                </div>
+            </div>
+            @empty
+                
+            @endforelse
+            
+
+
+            {{-- <div class="table-div" data-aos="fade-up">
                 <strong>Product Varients</strong>
                 <table class="table table-striped">
                 <thead>
@@ -55,8 +73,8 @@
                     
                 </tbody>
                 </table>
-            </div>
-            <div class="table-div" data-aos="fade-up">
+            </div> --}}
+            {{-- <div class="table-div" data-aos="fade-up">
                 <strong>Technical Data</strong>
                 <table class="table table-striped">
                 <thead>
@@ -76,7 +94,7 @@
                     @endforelse
                 </tbody>
                 </table>
-            </div>
+            </div> --}}
             </div>
         </div>
         </div>

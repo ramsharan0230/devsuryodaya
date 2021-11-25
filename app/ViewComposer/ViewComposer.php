@@ -10,6 +10,7 @@ use App\Models\Service;
 use App\Models\SiteSetting;
 use App\Models\Slider;
 use App\Models\Video;
+use App\Models\About;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
@@ -20,7 +21,7 @@ class ViewComposer
     private $site_setting;
 
     public function __construct(Slider $slider, Product $product, SiteSetting $site_setting, 
-    Category $category, Service $service, Client $client, Video $video)
+    Category $category, Service $service, Client $client, Video $video, About $about)
     {
         $this->slider = $slider;
         $this->product = $product;
@@ -29,6 +30,7 @@ class ViewComposer
         $this->service = $service;
         $this->client = $client;
         $this->video = $video;
+        $this->about = $about;
     }
 
     public function compose(View $view)
@@ -39,21 +41,23 @@ class ViewComposer
         $mainVideos = $this->video->where('publish', 1)->orderBy('created_at', 'DESC')->get();
         $clients = $this->client->limit(6)->where('publish', 1)->orderBy('created_at', 'DESC')->get();
         $sliders = $this->slider->where('publish', 1)->limit(10)->orderBy('created_at', 'DESC')->get();
-        $products = $this->product->where('publish', 1)->limit(10)->orderBy('created_at', 'DESC')->get();
+        $mainProducts = $this->product->where('publish', 1)->limit(10)->orderBy('created_at', 'DESC')->get();
         $categories = $this->category->where('publish', 1)->limit(10)->orderBy('order', 'ASC')->get();
+        $about = $this->about->first();
 
         $siteSettings = $this->site_setting->where('publish', 1)->first();
         $seo_siteSettings = DB::table('seo_site_settings')->where('publish', 1)->first();
 
         $view->with([
             'sliders' => $sliders,
-            'products' => $products,
+            'mainProducts' => $mainProducts,
             'siteSettings'=>$siteSettings,
             'categories' => $categories,
             'mainServices' => $mainServices,
             'mainVideos' => $mainVideos,
             'clients' => $clients,
-            'seo_siteSettings'=>$seo_siteSettings
+            'seo_siteSettings'=>$seo_siteSettings,
+            'about' => $about
         ]);
     }
 }

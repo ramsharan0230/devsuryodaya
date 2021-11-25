@@ -4,12 +4,12 @@
 		<a href="{{ route('admin.home.index') }}" class="logo">
 		  <!-- logo-->
 		  <div class="logo-mini w-40">
-			  <span class="light-logo"><img src="{{ asset('images/logo-letter.png"') }} alt="logo"></span>
-			  <span class="dark-logo"><img src="{{ asset('images/logo-letter-white.png') }}" alt="logo"></span>
+			  {{-- <span class="light-logo"><img src="{{ asset('assets/img/logo.jpeg') }}" alt="logo"></span> --}}
+			  <span class="dark-logo"><img src="{{ asset('assets/img/logo.jpeg') }}" alt="logo"></span>
 		  </div>
 		  <div class="logo-lg">
-			  <span class="light-logo"><img src="{{ asset('images/logo-light-text3.png') }}" alt="logo"></span>
-			  <span class="dark-logo"><img src="{{ asset('images/logo-light-text3.png') }}" alt="logo"></span>
+			  <span class="light-logo"><img src="{{ asset('assets/img/logo.jpeg') }}" alt="logo"></span>
+			  <span class="dark-logo"><img src="{{ asset('assets/img/logo.jpeg') }}" alt="logo"></span>
 		  </div>
 		</a>	
 	</div>   

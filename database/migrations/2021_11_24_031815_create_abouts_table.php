@@ -29,6 +29,10 @@ class CreateAboutsTable extends Migration
             $table->string('fourth_icon_title')->nullable();
             $table->longText('fourth_icon_description')->nullable();
             $table->string('about_title')->nullable();
+            $table->string('seo_title')->nullable();
+            $table->longText('seo_short_description')->nullable();
+            $table->string('seo_about_title')->nullable();
+            $table->longText('seo_main_description')->nullable();
             $table->boolean('publish', 0,1)->default(1);
             $table->timestamps();
         });

@@ -75,6 +75,19 @@
 				<li class="treeview">
 					<a href="#">
 						<i data-feather="settings"></i>
+						<span> About us </i></span>
+						<span class="pull-right-container">
+						<i class="fa fa-angle-right pull-right" ></i>
+						</span>
+					</a>
+					<ul class="treeview-menu">					
+						<li><a href="{{ route('admin.about.index') }}"><i data-feather="list"><span class="path1"></span><span class="path2"></span></i> List</a></li>
+					</ul>
+				</li>
+
+				<li class="treeview">
+					<a href="#">
+						<i data-feather="settings"></i>
 						<span> Sliders </i></span>
 						<span class="pull-right-container">
 						<i class="fa fa-angle-right pull-right" ></i>

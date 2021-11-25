@@ -26,6 +26,7 @@
 								<th>S.N.</th>
 								<th>Title</th>
 								<th>Slug</th>
+                <th>Category</th>
 								<th>Image</th>
 								<th>Order</th>
 								<th>Status</th>
@@ -33,11 +34,13 @@
 							</tr>
 						</thead>
 						<tbody>
-                        @foreach($details as $key=>$detail)
-                        <tr>
-                        	<td>{{ $key+1 }}</td>
-				            <td>{{ $detail->name }}</td>
+              @foreach($details as $key=>$detail)
+              <tr>
+              <td>{{ $key+1 }}</td>
+              <td>{{ $detail->name }}</td>
 							<td>{{ $detail->slug }}</td>
+							<td>{{ $detail->category->name }}</td>
+
 							<td>
 								@if($detail->image)
 									<img src="{{ asset('images/subcategory').'/'.$detail->image }}" width="150px" height="100px" alt="feature-image">

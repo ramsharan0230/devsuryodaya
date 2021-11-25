@@ -12,7 +12,7 @@
             <div class="d-flex justify-content-between align-items-center">
               <h2>About US</h2>
               <ol>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="{{ route('home') }}">Home</a></li>
                 <li>About US</li>
               </ol>
             </div>
@@ -20,40 +20,38 @@
           </div>
         </section><!-- End Breadcrumbs -->
     
-        <section class="about-us-banner" style="background-image:linear-gradient(#251f1f87,#000000a1), url(assets/img/about-us.jpg);"></section>
+        <section class="about-us-banner" style="background-image:linear-gradient(#251f1f87,#000000a1), url({{ asset('images/main').'/'.$about->background_image }});"></section>
     
         <!-- ======= About Us Section ======= -->
         <section id="about-us" class="about-us">
           <div class="container">
     
             <div class="row no-gutters">
-              <div style="background-image: url({{asset('assets/img/about.jpg')}});" class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start" data-aos="fade-right"></div>
+              <div style="background-image: url({{asset('images/main').'/'.$about->main_image }});" class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start" data-aos="fade-right"></div>
               <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
                 <div class="content d-flex flex-column justify-content-center">
-                  <h3 data-aos="fade-up">Voluptatem dignissimos provident quasi</h3>
-                  <p data-aos="fade-up">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                  </p>
+                  <h3 data-aos="fade-up">{{ $about->title }}</h3>
+                  <p data-aos="fade-up"> {{ $about->short_description }}</p>
                   <div class="row">
                     <div class="col-md-6 icon-box" data-aos="fade-up">
                       <i class="bx bx-receipt"></i>
-                      <h4>Corporis voluptates sit</h4>
-                      <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                      <h4>{{ $about->first_icon_title }}</h4>
+                      <p>{{ $about->first_icon_description }}</p>
                     </div>
                     <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
                       <i class="bx bx-cube-alt"></i>
-                      <h4>Ullamco laboris nisi</h4>
-                      <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+                      <h4>{{ $about->second_icon_title }}</h4>
+                      <p>{{ $about->second_icon_description }}</p>
                     </div>
                     <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
                       <i class="bx bx-images"></i>
-                      <h4>Labore consequatur</h4>
-                      <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
+                      <h4>{{ $about->third_icon_title }}</h4>
+                      <p>{{ $about->third_icon_description }}</p>
                     </div>
                     <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
                       <i class="bx bx-shield"></i>
-                      <h4>Beatae veritatis</h4>
-                      <p>Expedita veritatis consequuntur nihil tempore laudantium vitae denat pacta</p>
+                      <h4>{{ $about->fourth_icon_title }}</h4>
+                      <p>{{ $about->fourth_icon_description }}</p>
                     </div>
                   </div>
                 </div><!-- End .content-->
@@ -61,8 +59,8 @@
     
               <div class="col-xs-12 col-sm-12 col-xl-12">
                 <div class="about-ld">
-                  <h4>About Drive Suryodaya Healthcare</h4>
-                  <p>Headquartered in Port Washington, New York, Drive DeVilbiss Healthcare manufactures a complete line of medical products, including mobility products, sleep and respiratory products, beds, bariatric products, wheelchairs, sleep surfaces and pressure prevention products, self-assist products, power operated wheelchairs, rehabilitation products, patient room equipment, personal care products and Mobility electrotherapy devices. Currently, the Company has corporate offices, manufacturing facilities and distribution facilities located throughout the United States, Canada, the United Kingdom, France, Germany, Romania, the Netherlands, China, Hong Kong, India and Australia. The Company markets its products to customers located throughout the United States, Canada, Mexico, Central and South America, Europe, the Middle East, Asia and Australia. For more information, www.drivemedical.com.</p>
+                  <h4>{{ $about->about_title }}</h4>
+                  <p>{{ $about->main_description }}</p>
                 </div>
               </div>
             </div>
@@ -84,7 +82,7 @@
                       <h4>{{ $testimonial->description }}</h4>
                       <p>
                         <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                        Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                        <p>{!! $testimonial->quote !!}</p>
                         <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                       </p>
                     </div>

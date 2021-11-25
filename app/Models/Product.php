@@ -31,7 +31,7 @@ class Product extends Model
         return $this->belongsTo(Service::class);
     }
 
-    public function catalog(){
-        return $this->hasOne(Catalog::class);
+    public function catalogs(){
+        return $this->hasMany(Catalog::class);
     }
 }

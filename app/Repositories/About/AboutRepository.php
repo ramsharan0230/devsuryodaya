@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 class AboutRepository extends CrudRepository implements AboutInterface{
 
 	public function __construct(About $about){
-		$this->model=$blog;
+		$this->model=$about;
 	}
 
 	public function create($input){
