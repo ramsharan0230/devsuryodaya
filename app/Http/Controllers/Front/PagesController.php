@@ -12,6 +12,9 @@ use App\Models\Subscription;
 use App\Models\Product;
 use App\Models\Video;
 use App\Models\Catalog;
+use App\Models\Category;
+use App\Models\Subcategory;
+
 use Illuminate\Support\Facades\Validator;
 
 class PagesController extends Controller
@@ -129,8 +132,31 @@ class PagesController extends Controller
         return view('front.catalogs', compact('catalogs'));
     }
 
-    public function categories(){
-        return view('front.home');
+    public function productBycategory($slug){
+        $category = Category::where('slug', $slug)->first();
+
+        if(!$category){
+            return view('front.page-not-found');
+        }
+        else{
+            $subcategories = [];
+            foreach($category->subcategories as $sub){
+                array_push($subcategories, $sub->id); 
+            }
+            $productsByCat = Product::whereIn('id', $subcategories)->get();
+        }
+        $title= $category->name;
+        return view('front.product-listing', compact('productsByCat', 'title'));
+    }
+
+    public function productBySubcategory($slug){
+        $subcategory = Subcategory::where('slug', $slug)->first();
+        if(!$subcategory)
+            return view('front.page-not-found');
+        else
+            $productsByCat = Product::where('subcategory_id', $subcategory->id)->get();
+
+        return view('front.subcategory-product-listing', compact('productsByCat', 'subcategory'));
     }
 
     public function subcategory($slug){

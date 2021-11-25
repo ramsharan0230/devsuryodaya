@@ -21,7 +21,7 @@
     <div class="logo">
       <!-- <h1 class="text-light"><a href="index.html">Suryodaya</a></h1> -->
       <!-- Uncomment below if you prefer to use an image logo -->
-       <a href="{{ route('home') }}"><img src="assets/img/logo.jpeg" alt="" class="img-fluid"></a>
+       <a href="{{ route('home') }}"><img src="{{asset('/assets/img/logo.jpeg')}}" alt="" class="img-fluid"></a>
     </div>
     <nav id="navbar" class="navbar">
       <ul>
@@ -29,11 +29,11 @@
         <li class="dropdown"><a href="{{ route('products') }}"><span>Products</span> <i class="bi bi-chevron-down"></i></a>
           <ul>
             @foreach ($categories as $category)
-            <li class="dropdown"><a href="#"><span> {{ $category->name}} </span> <i class="bi bi-chevron-right"></i></a>
+            <li class="dropdown"><a href="{{ route('productBycategory', $category->slug) }}"><span> {{ $category->name}} </span> <i class="bi bi-chevron-right"></i></a>
               @if(count($category->subcategories) > 0)
               <ul>
                 @foreach ($category->subcategories as $subcategory)
-                  <li><a href="#">{{ $subcategory->name}}</a></li>
+                  <li><a href="{{ route('productBySubcategory', $subcategory->slug) }}">{{ $subcategory->name}}</a></li>
                 @endforeach
               </ul>
               @endif

@@ -10,7 +10,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 class Subcategory extends Model
 {
     protected $table = 'subcategories';
-    protected $fillable = [ 'name', 'description', 'image', 'order', 'user_id', 'publish', 'category_id'];
+    protected $fillable = [ 'name', 'slug', 'description', 'image', 'order', 'user_id', 'publish', 'category_id'];
 
     public function sluggable(): array
     {

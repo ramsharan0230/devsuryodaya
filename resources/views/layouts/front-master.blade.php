@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="{{ asset('assets/img/logo.jpeg">') }}">
+    <link rel="icon" href="{{ asset('assets/img/logo.jpeg') }}">
     <title>@yield('title') | Suryodaya Inc. </title>
     <link href="{{ asset('front/assets/vendor/animate.css/animate.min.css') }}" rel="stylesheet">
     <link href="{{ asset('front/assets/vendor/aos/aos.css') }}" rel="stylesheet">
@@ -17,6 +17,7 @@
     <link href="{{ asset('front/assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
     <link href="{{ asset('front/assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
     <link href="{{ asset('front/assets/vendor/multislider/css/custom.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
   
     <!-- Template Main CSS File -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">

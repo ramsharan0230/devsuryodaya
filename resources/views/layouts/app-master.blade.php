@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="{{ asset('images/favicon.ico">') }}">
+    <link rel="icon" href="{{ asset('assets/img/logo.jpeg') }}">
     <title>@yield('title') | Suryodaya Inc. </title>
     <link rel="stylesheet" href="{{ asset('src/css/vendors_css.css') }}">
     <!-- Style-->  

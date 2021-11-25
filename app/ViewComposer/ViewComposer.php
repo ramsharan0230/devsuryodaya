@@ -41,7 +41,7 @@ class ViewComposer
         $mainVideos = $this->video->where('publish', 1)->orderBy('created_at', 'DESC')->get();
         $clients = $this->client->limit(6)->where('publish', 1)->orderBy('created_at', 'DESC')->get();
         $sliders = $this->slider->where('publish', 1)->limit(10)->orderBy('created_at', 'DESC')->get();
-        $products = $this->product->where('publish', 1)->limit(10)->orderBy('created_at', 'DESC')->get();
+        $mainProducts = $this->product->where('publish', 1)->limit(10)->orderBy('created_at', 'DESC')->get();
         $categories = $this->category->where('publish', 1)->limit(10)->orderBy('order', 'ASC')->get();
         $about = $this->about->first();
 
@@ -50,7 +50,7 @@ class ViewComposer
 
         $view->with([
             'sliders' => $sliders,
-            'products' => $products,
+            'mainProducts' => $mainProducts,
             'siteSettings'=>$siteSettings,
             'categories' => $categories,
             'mainServices' => $mainServices,

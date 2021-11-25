@@ -14,12 +14,13 @@
     <!-- ======= Breadcrumbs ======= -->
     <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
-
-        <ol>
-          <li><a href="index.html">Home</a></li>
-          <li>Catalog Download</li>
-        </ol>
-        <h2>Catalog Download</h2>
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Catalogs</h2>
+          <ol>
+              <li><a href="{{ route('home') }}">Home</a></li>
+              <li><a href="#">Catalogs</a></li>
+          </ol>
+          </div>
 
       </div>
     </section><!-- End Breadcrumbs -->

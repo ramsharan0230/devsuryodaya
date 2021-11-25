@@ -35,6 +35,9 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::post('/contact', 'PagesController@postContact')->name('contact');
         Route::get('/catalog', 'PagesController@catalogs')->name('catalog');
         Route::post('/subscription', 'PagesController@subscription')->name('subscription');
+        
+        Route::get('/productBycategory/{slug}', 'PagesController@productBycategory')->name('productBycategory');
+        Route::get('/productBySubcategory/{slug}', 'PagesController@productBySubcategory')->name('productBySubcategory');
 
         Route::get('/products', 'PagesController@products')->name('products');
         Route::get('/product-detail/{slug}', 'PagesController@productDetail')->name('product-detail');
