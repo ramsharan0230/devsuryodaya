@@ -28,7 +28,7 @@
                     </ul>
                 </div>
                 @endif
-                    <form method="POST" action="{{ route('roles.store') }}">
+                    <form method="POST" action="{{ route('admin.roles.store') }}">
                         @csrf
                         <div class="mb-3">
                             <label for="name" class="form-label">Name</label>
@@ -50,7 +50,7 @@
                         @endforeach
         
                         <button type="submit" class="btn btn-primary">Save user</button>
-                        <a href="{{ route('users.index') }}" class="btn btn-default">Back</a>
+                        <a href="{{ route('admin.users.index') }}" class="btn btn-default">Back</a>
                     </form>
                 </div>
                 <!-- /.box-body -->

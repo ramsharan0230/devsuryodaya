@@ -13,13 +13,13 @@
     <div class="box">
         <div class="box-header with-border">
           <h4 class="box-title"> Users</h4>
-          <a href="{{ route('users.create') }}" class="btn btn-success pull-right"><i class="fa fa-plus"></i>  Add</a>
+          <a href="{{ route('admin.users.create') }}" class="btn btn-success pull-right"><i class="fa fa-plus"></i>  Add</a>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
             
             <div class="container mt-4">
-                <form method="post" action="{{ route('users.update', $user->id) }}">
+                <form method="post" action="{{ route('admin.users.update', $user->id) }}">
                     @method('patch')
                     @csrf
                     <div class="mb-3">
@@ -74,7 +74,7 @@
                     </div>
     
                     <button type="submit" class="btn btn-primary">Update user</button>
-                    <a href="{{ route('users.index') }}" class="btn btn-default">Cancel</button>
+                    <a href="{{ route('admin.users.index') }}" class="btn btn-default">Cancel</button>
                 </form>
             </div>
     

@@ -55,7 +55,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary">Save user</button>
-                <a href="{{ route('users.index') }}" class="btn btn-default">Back</a>
+                <a href="{{ route('admin.users.index') }}" class="btn btn-default">Back</a>
             </form>
         </div>
 
