@@ -116,7 +116,7 @@
                     </p>
                   </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <!-- <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                   <div class="latest-items aos-init aos-animate">
                     <a href="{{ route('service-detail', $item->slug) }}"> <img src="/front/assets/img/ifill1280.jpg"></a>
                     <h4 class="title"><a href="{{ route('service-detail', $item->slug) }}">{{ $item->subtitle }}</a></h4>
@@ -125,7 +125,7 @@
                       {{ $item->short_description }}
                     </p>
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
             @empty
