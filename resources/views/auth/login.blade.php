@@ -14,43 +14,34 @@
                     <div class="p-40">
                         @include('layouts.partials.messages')
 
-                            <form method="post" action="{{ route('login.perform') }}">
-                                <input type="hidden" name="_token" value="{{ csrf_token() }}" />    
-                                <div class="form-group form-floating mb-3">
-                                    <input type="text" class="form-control" name="username" value="{{ old('username') }}" placeholder="Username" required="required" autofocus>
-                                    <label for="floatingName">Email or Username</label>
-                                    @if ($errors->has('username'))
-                                        <span class="text-danger text-left">{{ $errors->first('username') }}</span>
-                                    @endif
+                        <form method="post" action="{{ route('login.perform') }}">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}" />    
+                            <div class="form-group form-floating mb-3">
+                                <input type="text" class="form-control input-bordered" name="username" value="{{ old('username') }}" placeholder="Username" required="required" autofocus>
+                                <label for="floatingName">Email or Username</label>
+                                @if ($errors->has('username'))
+                                    <span class="text-danger text-left">{{ $errors->first('username') }}</span>
+                                @endif
+                            </div>
+                            
+                            <div class="form-group form-floating mb-3">
+                                <input type="password" class="form-control input-bordered" name="password" value="{{ old('password') }}" placeholder="Password" required="required">
+                                <label for="floatingPassword">Password</label>
+                                @if ($errors->has('password'))
+                                    <span class="text-danger text-left">{{ $errors->first('password') }}</span>
+                                @endif
+                            </div>
+                    
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                    <a href="{{ route('forget-password') }}" class="card-text"> Forget Password</a>
                                 </div>
-                                
-                                <div class="form-group form-floating mb-3">
-                                    <input type="password" class="form-control" name="password" value="{{ old('password') }}" placeholder="Password" required="required">
-                                    <label for="floatingPassword">Password</label>
-                                    @if ($errors->has('password'))
-                                        <span class="text-danger text-left">{{ $errors->first('password') }}</span>
-                                    @endif
-                                </div>
-                        
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="form-group mb-3">
-                                            <label for="remember">Remember me</label>
-                                            <input type="checkbox" name="remember" value="1">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <a href="{{ route('forget-password') }}" class="card-text"> Forget Password</a>
-                                    </div>
-                                </div>
-                                
-                                <button type="submit" class="btn btn-primary w-p100 mt-10">SIGN IN</button>
-                                
-                                @include('auth.partials.copy')
-                            </form>
-                        <div class="text-center">
-                            <p class="mt-15 mb-0 text-fade">Don't have an account? <a href="#" class="text-primary ms-5">Sign Up</a></p>
-                        </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary w-p100 mt-10">SIGN IN</button>
+                            
+                            @include('auth.partials.copy')
+                        </form>
                     </div>						
                 </div>
             </div>

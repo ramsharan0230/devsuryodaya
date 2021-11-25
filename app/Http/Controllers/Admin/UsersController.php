@@ -50,7 +50,7 @@ class UsersController extends Controller
         ]));
 
         return redirect()->route('admin.users.index')
-            ->withSuccess(__('User created successfully.'));
+            ->with(['success'=>'User created successfully.']);
     }
 
     /**
@@ -98,7 +98,7 @@ class UsersController extends Controller
         $user->syncRoles($request->get('role'));
 
         return redirect()->route('admin.users.index')
-            ->withSuccess(__('User updated successfully.'));
+        ->with(['success'=>'User updated successfully.']);
     }
 
     /**

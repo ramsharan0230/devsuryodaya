@@ -23,14 +23,14 @@
           <table id="example" class="form-input-table display table table-bordered">
             <thead>
                 <tr class="text-dark">
-                    <th>S.N.</th>
-					<th>Title</th>
-					<th>Author</th>
-					<th>Descriptions</th>
-					<th>Order</th>
-					<th>Image</th>
-					<th>Status</th>
-					<th>Action</th>
+                  <th>S.N.</th>
+                  <th>Title</th>
+                  <th>Author</th>
+                  <th>Descriptions</th>
+                  <th>Order</th>
+                  <th>Image</th>
+                  <th>Status</th>
+                  <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -48,7 +48,7 @@
 						@endif
 					</td>
 					<td>
-						@if((int) $detail->status==1)
+						@if((int) $detail->publish==1)
 						<span class="label label-primary">Active</span>
 						@else
 						<span class="label label-danger">Inactive</span>
