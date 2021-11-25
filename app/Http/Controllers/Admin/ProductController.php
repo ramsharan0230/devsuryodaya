@@ -200,7 +200,9 @@ class ProductController extends Controller
     public function imageProcessing($image){
        $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
        $thumbPath = public_path('images/product');
-
+        if (!file_exists($thumbPath)) {
+            mkdir($thumbPath, 0755, true);
+        }
        $img1 = Image::make($image->getRealPath());
        $img1->fit(526, 526)->save($thumbPath.'/'.$input['imagename']);
        

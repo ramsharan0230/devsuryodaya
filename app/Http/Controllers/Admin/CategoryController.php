@@ -40,8 +40,8 @@ class CategoryController extends Controller
         $value['publish']= is_null($request->publish)? 0: 1 ;
         $value['user_id'] = Auth::id();
 
-        if($request->hasFile('feature_image')){
-            $image=$this->imageProcessing($request->file('feature_image'));
+        if($request->hasFile('image')){
+            $image=$this->imageProcessing($request->file('image'));
             $value['feature_image']=$image;
         }
 
@@ -72,7 +72,7 @@ class CategoryController extends Controller
 
         $value['publish']= is_null($request->publish)? 0 : 1 ;
 
-        if($request->hasFile('feature_image')){
+        if($request->hasFile('image')){
             $image = $this->category->find($id);
             if($image->feature_image){
                 $thumbPath = public_path('images/category');
@@ -80,7 +80,7 @@ class CategoryController extends Controller
                     unlink($thumbPath.'/'.$image->feature_image);
                 }
             }
-            $image=$this->imageProcessing($request->file('feature_image'));
+            $image=$this->imageProcessing($request->file('image'));
             
             $value['feature_image']=$image;
         }
@@ -111,7 +111,9 @@ class CategoryController extends Controller
     public function imageProcessing($image){
         $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
         $thumbPath = public_path('images/category');
-
+        if (!file_exists($thumbPath)) {
+            mkdir($thumbPath, 0755, true);
+        }
         $img1 = Image::make($image->getRealPath());
         $img1->fit(856, 642)->save($thumbPath.'/'.$input['imagename']);
         return $input['imagename'];   
