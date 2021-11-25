@@ -84,7 +84,7 @@
             </div>
           </div>
           @empty
-              <p>No service found</p>
+              <!-- <p>No service found</p> -->
           @endforelse
           
           
@@ -93,7 +93,7 @@
       </div>
     </section><!-- End Services Section -->
 
-
+@if(count($mainServices))
     <!-- ======= Latest Products Section ======= -->
     <section id="latest-products" class="latest-products">
       <div class="container">
@@ -142,6 +142,7 @@
 
       </div>
     </section><!-- End  Latest Products Section -->
+    @endif
     <section>
       <div class="container">
 

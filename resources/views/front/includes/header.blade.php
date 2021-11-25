@@ -6,10 +6,10 @@
       <i class="bi bi-phone d-flex align-items-center ms-4"><span>{{ $siteSettings->landline }}</span></i>
     </div>
     <div class="social-links d-none d-md-flex align-items-center">
-      <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-      <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-      <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-      <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+      <a href="{{ $siteSettings->twiter }}" target="_blank" class="twitter"><i class="bi bi-twitter"></i></a>
+      <a href="{{ $siteSettings->facebook }}" target="_blank" class="facebook"><i class="bi bi-facebook"></i></a>
+      <a href="{{ $siteSettings->instagram }}" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
+      <a href="{{ $siteSettings->linkedin }}" target="_blank" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
     </div>
   </div>
 </section>
@@ -39,7 +39,7 @@
               @endif
             </li>
             @endforeach
-            
+
           </ul>
         </li>
         <li class="dropdown"><a href="{{ route('services') }}"><span>Services</span> <i class="bi bi-chevron-down"></i></a>
@@ -47,14 +47,14 @@
             @forelse ($mainServices as $service)
             <li><a href="{{ route('service-detail', $service->slug) }}">{{ $service->title }}</a></li>
             @empty
-                
+
             @endforelse
-            
+
           </ul>
         </li>
         <li><a href="{{ route('about') }}">About Us</a></li>
         <li><a href="{{ route('blogs') }}">Blog</a></li>
-        
+
         <li><a href="{{ route('contact') }}">Contact</a></li>
         <li>
           <div class="form">
@@ -65,7 +65,7 @@
               </div>
             </form>
           </div>
-          
+
         </li>
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>

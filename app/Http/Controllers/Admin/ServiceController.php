@@ -107,7 +107,9 @@ class ServiceController extends Controller
     public function imageProcessing($image){
         $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
         $thumbPath = public_path('images/service');
-
+        if (!file_exists($thumbPath)) {
+            mkdir($thumbPath, 0755, true);
+        }
         $img1 = Image::make($image->getRealPath());
         $img1->fit(856, 642)->save($thumbPath.'/'.$input['imagename']);
         return $input['imagename'];   

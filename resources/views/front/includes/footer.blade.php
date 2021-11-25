@@ -31,9 +31,9 @@
           <h4>Our Services</h4>
           <ul>
             @forelse ($mainServices as $service)
-              <li><i class="bx bx-chevron-right"></i> <a href="#">{{ $service->title }}</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">{{ $service->title }}</a></li>
             @empty
-              <li><i class="bx bx-chevron-right"></i> <a href="#">No Service Found</a></li>
+            <!-- <li><i class="bx bx-chevron-right"></i> <a href="#">No Service Found</a></li> -->
             @endforelse
           </ul>
         </div>
@@ -41,19 +41,19 @@
         <div class="col-lg-4 col-md-6 footer-newsletter">
           <h4>Join Our Newsletter</h4>
           <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-            @if(Session::has('message'))
-              <div class="alert alert-success alert-dismissible message">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-                {!! Session::get('message') !!}
-              </div>
-            @endif
-            
-            <form action="{{ route('subscription') }}" method="post">
-              {{csrf_field()}}
-              <input type="email" name="email" placeholder="Enter your mail ..."><input type="submit" value="Subscribe">
-            </form>
+          @if(Session::has('message'))
+          <div class="alert alert-success alert-dismissible message">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            {!! Session::get('message') !!}
+          </div>
+          @endif
+
+          <form action="{{ route('subscription') }}" method="post">
+            {{csrf_field()}}
+            <input type="email" name="email" placeholder="Enter your mail ..."><input type="submit" value="Subscribe">
+          </form>
         </div>
 
       </div>
@@ -64,18 +64,17 @@
 
     <div class="me-md-auto text-center text-md-start">
       <div class="copyright">
-        2021 &copy; Copyright <strong><span>Suryodya</span></strong>. All Rights Reserved
+        2021 &copy; Copyright <strong><span>Suryodaya Inc</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
-        Designed by <a target="_blank" href="https://www.itconcerns.com.np/">itconcerns</a>
+        Designed by <a target="_blank" href="https://www.itconcerns.com.np/">IT Concerns</a>
       </div>
     </div>
     <div class="social-links text-center text-md-right pt-3 pt-md-0">
-      <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-      <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-      <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-      <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-      <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      <a href="{{ $siteSettings->twiter }}" target="_blank" class="twitter"><i class="bx bxl-twitter"></i></a>
+      <a href="{{ $siteSettings->facebook }}" target="_blank" class="facebook"><i class="bx bxl-facebook"></i></a>
+      <a href="{{ $siteSettings->instagram }}" target="_blank" class="instagram"><i class="bx bxl-instagram"></i></a>
+      <a href="{{ $siteSettings->linkedin }}" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
     </div>
   </div>
 </footer><!-- End Footer -->
