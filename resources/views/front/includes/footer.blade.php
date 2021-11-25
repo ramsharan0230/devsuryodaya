@@ -6,7 +6,7 @@
       <div class="row">
 
         <div class="col-lg-3 col-md-6 footer-contact">
-          <h3>Suryodaya</h3>
+          <h3>Suryodaya Inc. </h3>
           <p>
             {{$siteSettings->address}} <br>
             {{$siteSettings->location}}
@@ -31,7 +31,7 @@
           <h4>Our Services</h4>
           <ul>
             @forelse ($mainServices as $service)
-            <li><i class="bx bx-chevron-right"></i> <a href="#">{{ $service->title }}</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="{{ route('service-detail', $service->slug) }}">{{ $service->title }}</a></li>
             @empty
             <!-- <li><i class="bx bx-chevron-right"></i> <a href="#">No Service Found</a></li> -->
             @endforelse
