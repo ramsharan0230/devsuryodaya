@@ -62,7 +62,7 @@
               </div>
             </div>
           @empty
-              <p>No releted blog found. </p>
+              <!-- <p>No releted blog found. </p> -->
           @endforelse
 
         </div>
