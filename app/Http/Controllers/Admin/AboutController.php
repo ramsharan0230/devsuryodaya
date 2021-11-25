@@ -101,8 +101,8 @@ class AboutController extends Controller
                     unlink($thumbPath.'/'.$image->background_image);
                 }
             }
-            $image=$this->imageProcessing($request->file('background_image'));
-            $value['background_image']=$image;
+            $imageDetail=$this->imageProcessing($request->file('background_image'));
+            $value['background_image']=$imageDetail;
 
             if($image->main_image){
                 $thumbPath = public_path('images/main');
@@ -110,8 +110,8 @@ class AboutController extends Controller
                     unlink($thumbPath.'/'.$image->main_image);
                 }
             }
-            $image=$this->imageProcessing($request->file('main_image'));
-            $value['main_image']=$image;
+            $imageDetails=$this->imageProcessing($request->file('main_image'));
+            $value['main_image']=$imageDetails;
         }
 
         $this->about->update($value,$id);
