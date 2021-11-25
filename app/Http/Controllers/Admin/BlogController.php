@@ -49,7 +49,7 @@ class BlogController extends Controller
 
         $value=$request->except('image','publish');
 
-        $value['publish']=$request->publish =="on"? 1 : 0 ;
+        $value['publish'] = is_null($request->publish)? 0 : 1;
         
         if($request->image){
             $image=$this->imageProcessing($request->file('image'));
@@ -91,8 +91,7 @@ class BlogController extends Controller
         $old=$this->blog->find($id);
         $this->validate($request, $this->rulesForUpdate());
         $value=$request->except('image','publish');
-
-        $value['publish']=$request->publish =="on"? 1 : 0 ;
+        $value['publish'] = is_null($request->publish)? 0 : 1;
 
         if($request->hasFile('image')){
             $image=$this->blog->find($id);
@@ -113,7 +112,7 @@ class BlogController extends Controller
             'meta_description' => is_null($request->description)?$request->title:$request->description,
             'meta_phrase' => is_null($request->short_description)?$request->title:$request->short_description,
             'keyword'=> is_null($request->keyword)?$request->title:$request->keyword,
-            'publish'=> $value['status']
+            'publish'=> $value['publish']
         ]);
 
 

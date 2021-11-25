@@ -94,6 +94,14 @@
 											<span class="text-danger text-left">{{ $errors->first('order') }}</span>
 										@endif
 									</div>
+
+									<div class="form-group">
+										<div class="form-group">
+											<input type="checkbox" value="1" name="publish" id="basic_checkbox_1" class="filled-in" checked>
+											<label for="basic_checkbox_1" class="mb-0 h-15">Publish</label>
+										</div>
+									</div>
+									
 									<div class="form-group">
 										<input type="submit" name="" class="btn btn-success">
 									</div>

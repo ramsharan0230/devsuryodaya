@@ -19,12 +19,12 @@
                     <div class="flex-column">
                       <div class="row">
                         <div class="col-sm-12 col-md-9 col-lg-9">
-                            <i class="fa fa-google-plus fa-2x ps-5"></i>
+                            <i data-feather="file"></i>
                             <p>{{ $permissionCount }}</p>
                             <h3>Now Get <a href="{{ route('admin.permissions.index') }}"><span class="font-bold">Permissions</span></a> </h3>
                         </div>
                         <div class="col-sm-12 col-md-3 col-lg-3">
-                          <a href="{{ route('admin.permissions.create') }}" class="btn btn-secondary">Add</a>
+                          <a href="{{ route('admin.permissions.create') }}" class="btn btn-sm btn-primary">Add</a>
                         </div>
                       </div>
                         
@@ -39,12 +39,12 @@
                   <div class="flex-column">
                     <div class="row">
                       <div class="col-sm-12 col-md-9 col-lg-9">
-                          <i class="fa fa-google-plus fa-2x ps-5"></i>
+                        <i data-feather="aperture"></i>
                           <p>{{ $userCount }}</p>
                           <h3>Now Get <a href="{{ route('admin.users.index') }}"><span class="font-bold">Users</span></a> </h3>
                       </div>
                       <div class="col-sm-12 col-md-3 col-lg-3">
-                        <a href="{{ route('admin.users.create') }}" class="btn btn-success"> Add</a>
+                        <a href="{{ route('admin.users.create') }}" class="btn btn-sm btn-primary"> Add</a>
                       </div>
                     </div>
                   </div>
@@ -58,12 +58,12 @@
                 <div class="flex-column">
                   <div class="row">
                     <div class="col-sm-12 col-md-9 col-lg-9">
-                        <i class="fa fa-google-plus fa-2x ps-5"></i>
+                      <i data-feather="bookmark"></i>
                         <p>{{ $roleCount }}</p>
                         <h3>Now Get <a href="{{ route('admin.roles.index') }}"><span class="font-bold"> Roles</span></a> </h3>
                     </div>
                     <div class="col-sm-12 col-md-3 col-lg-3">
-                      <a href="{{ route('admin.roles.create') }}" class="btn btn-secondary"> Add</a>
+                      <a href="{{ route('admin.roles.create') }}" class="btn btn-sm btn-primary"> Add</a>
                     </div>
                   </div>
                 </div>
@@ -77,12 +77,12 @@
                 <div class="flex-column">
                   <div class="row">
                     <div class="col-sm-12 col-md-9 col-lg-9">
-                        <i class="fa fa-google-plus fa-2x ps-5"></i>
+                        <i data-feather="book"></i>
                         <p>{{ $roleCount }}</p>
-                        <h3>Now Get <a href="{{ route('admin.roles.index') }}"><span class="font-bold"> Roles</span></a> </h3>
+                        <h3>Now Get <a href="{{ route('admin.blog.index') }}"><span class="font-bold"> Blogs</span></a> </h3>
                     </div>
                     <div class="col-sm-12 col-md-3 col-lg-3">
-                      <a href="{{ route('admin.roles.create') }}" class="btn btn-secondary"> Add</a>
+                      <a href="{{ route('admin.blog.create') }}" class="btn btn-sm btn-primary"> Add</a>
                     </div>
                   </div>
                 </div>
