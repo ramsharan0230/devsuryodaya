@@ -49,7 +49,7 @@ class UsersController extends Controller
             'password' => 'test' 
         ]));
 
-        return redirect()->route('users.index')
+        return redirect()->route('admin.users.index')
             ->withSuccess(__('User created successfully.'));
     }
 
@@ -97,7 +97,7 @@ class UsersController extends Controller
 
         $user->syncRoles($request->get('role'));
 
-        return redirect()->route('users.index')
+        return redirect()->route('admin.users.index')
             ->withSuccess(__('User updated successfully.'));
     }
 
@@ -112,7 +112,7 @@ class UsersController extends Controller
     {
         $user->delete();
 
-        return redirect()->route('users.index')
+        return redirect()->route('admin.users.index')
             ->withSuccess(__('User deleted successfully.'));
     }
 }

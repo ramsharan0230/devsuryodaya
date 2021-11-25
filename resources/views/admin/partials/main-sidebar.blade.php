@@ -74,20 +74,19 @@
 
 				<li class="treeview">
 					<a href="#">
-						<i data-feather="settings"></i>
+						<i class="fa fa-address-card"></i>
 						<span> About us </i></span>
 						<span class="pull-right-container">
-						<i class="fa fa-angle-right pull-right" ></i>
 						</span>
 					</a>
 					<ul class="treeview-menu">					
-						<li><a href="{{ route('admin.about.index') }}"><i data-feather="list"><span class="path1"></span><span class="path2"></span></i> List</a></li>
+						<li><a href="{{ route('admin.about.index') }}"><i data-feather="list"><span class="path1"></span><span class="path2"></span></i> Add/Update</a></li>
 					</ul>
 				</li>
 
 				<li class="treeview">
 					<a href="#">
-						<i data-feather="settings"></i>
+						<i data-feather="image"></i>
 						<span> Sliders </i></span>
 						<span class="pull-right-container">
 						<i class="fa fa-angle-right pull-right" ></i>
@@ -115,7 +114,7 @@
 
 				<li class="treeview">
 					<a href="#">
-					  <i data-feather="database"></i>
+					  <i data-feather="book"></i>
 					  <span>Category</span>
 					  <span class="pull-right-container">
 						<i class="fa fa-angle-right pull-right"></i>
@@ -143,7 +142,7 @@
 
 				<li class="treeview">
 					<a href="#">
-					  <i data-feather="database"></i>
+					  <i data-feather="server"></i>
 					  <span>Service</span>
 					  <span class="pull-right-container">
 						<i class="fa fa-angle-right pull-right"></i>
@@ -157,7 +156,7 @@
 
 				<li class="treeview">
 					<a href="#">
-					  <i data-feather="database"></i>
+					  <i data-feather="list"></i>
 					  <span>Product</span>
 					  <span class="pull-right-container">
 						<i class="fa fa-angle-right pull-right"></i>
@@ -171,7 +170,7 @@
 
 				<li class="treeview">
 					<a href="#">
-					  <i data-feather="database"></i>
+					  <i data-feather="folder"></i>
 					  <span>Testimonial</span>
 					  <span class="pull-right-container">
 						<i class="fa fa-angle-right pull-right"></i>
@@ -185,7 +184,7 @@
 
 				<li class="treeview">
 					<a href="#">
-					  <i data-feather="edit"></i>
+					  <i data-feather="file"></i>
 					  <span>Catalogs</span>
 					  <span class="pull-right-container">
 						<i class="fa fa-angle-right pull-right"></i>
@@ -199,7 +198,7 @@
 
 				  <li class="treeview">
 					<a href="#">
-					  <i data-feather="edit"></i>
+					  <i data-feather="film"></i>
 					  <span>Videos</span>
 					  <span class="pull-right-container">
 						<i class="fa fa-angle-right pull-right"></i>
@@ -213,7 +212,7 @@
 
 				  <li class="treeview">
 					<a href="#">
-					  <i data-feather="edit"></i>
+					  <i data-feather="file-text"></i>
 					  <span>Contact</span>
 					  <span class="pull-right-container">
 						<i class="fa fa-angle-right pull-right"></i>

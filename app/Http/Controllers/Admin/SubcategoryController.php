@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Str;
+
 
 class SubcategoryController extends Controller
 {
@@ -46,6 +48,7 @@ class SubcategoryController extends Controller
             $image=$this->imageProcessing($request->file('image'));
             $value['image']=$image;
         }
+        $value['slug']= Str::slug($request->name, '-');
 
         $this->subcategory->create($value);
 
@@ -76,6 +79,7 @@ class SubcategoryController extends Controller
 
         $value['publish']= is_null($request->publish)? 0 : 1;
         $value['category_id'] = $request->category_id;
+        $value['slug']= Str::slug($request->name, '-');
 
         if($request->hasFile('image')){
             if($old->image){

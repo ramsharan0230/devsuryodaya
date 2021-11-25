@@ -12,7 +12,7 @@
 <div class="box">
     <div class="box-header with-border">
       <h4 class="box-title"> Users</h4>
-      <a href="{{ route('users.create') }}" class="btn btn-success pull-right"><i class="fa fa-plus"></i>  Add</a>
+      <a href="{{ route('admin.users.create') }}" class="btn btn-success pull-right"><i class="fa fa-plus"></i>  Add</a>
     </div>
     <!-- /.box-header -->
     <div class="box-body">
@@ -46,13 +46,13 @@
                         <td>
                             <div class="row">
                                 <div class="col-sm-12 col-md-4 col-lg-4">
-                                    <a href="{{ route('users.show', $user->id) }}" class="btn btn-warning btn-sm pull-right">Show</a>
+                                    <a href="{{ route('admin.users.show', $user->id) }}" class="btn btn-warning btn-sm pull-right">Show</a>
                                 </div>
                                 <div class="col-sm-12 col-md-4 col-lg-4">
-                                    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-info btn-sm pull-left">Edit</a>
+                                    <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-info btn-sm pull-left">Edit</a>
                                 </div>
                                 <div class="col-sm-12 col-md-4 col-lg-4">
-                                    {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
+                                    {!! Form::open(['method' => 'DELETE','route' => ['admin.users.destroy', $user->id],'style'=>'display:inline']) !!}
                                     {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
                                     {!! Form::close() !!}
                                 </div>

@@ -12,7 +12,7 @@
 <div class="box">
     <div class="box-header with-border">
       <h4 class="box-title"> Users</h4>
-      <a href="{{ route('users.create') }}" class="btn btn-success pull-right"><i class="fa fa-plus"></i>  Add</a>
+      <a href="{{ route('admin.users.create') }}" class="btn btn-success pull-right"><i class="fa fa-plus"></i>  Add</a>
     </div>
     <!-- /.box-header -->
     <div class="box-body">
@@ -38,7 +38,7 @@
 
     </div>
     <div class="mt-4">
-        <a href="{{ route('roles.edit', $role->id) }}" class="btn btn-info">Edit</a>
-        <a href="{{ route('roles.index') }}" class="btn btn-default">Back</a>
+        <a href="{{ route('admin.roles.edit', $role->id) }}" class="btn btn-info">Edit</a>
+        <a href="{{ route('admin.roles.index') }}" class="btn btn-default">Back</a>
     </div>
 @endsection
