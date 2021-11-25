@@ -143,7 +143,7 @@ class PagesController extends Controller
             foreach($category->subcategories as $sub){
                 array_push($subcategories, $sub->id); 
             }
-            $productsByCat = Product::whereIn('id', $subcategories)->get();
+            $productsByCat = Product::whereIn('subcategory_id', $subcategories)->get();
         }
         $title= $category->name;
         return view('front.product-listing', compact('productsByCat', 'title'));

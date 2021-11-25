@@ -36,13 +36,13 @@
             </div>
 
             @forelse ($product->catalogs as $catalog)
-            <div class="alert alert-info" role="alert">
+            <div class="alert alert-secondary" role="alert">
                 <div class="row">
                     <div class="col-sm-8">
-                        {{ $catalog->title }}
+                        <span>{{ $catalog->title }}</span>
                     </div>
                     <div class="col-sm-4">
-                        <a href="{{ $catalog->catalog_file }}" download class="btn btn-primary btn-sm pull-right"><i class="fa fa-download"></i> Download</a>
+                        <a href="{{ $catalog->catalog_file }}" download class="btn btn-secondary btn-sm float-end"><i class="fa fa-download"></i> Download</a>
                     </div>
                 </div>
             </div>
