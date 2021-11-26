@@ -50,7 +50,9 @@
                 
             </tbody>	
         </table>
-        {!! $permissions->links() !!}
+        <div class="row">
+            {!! $permissions->links() !!}
+        </div>
         </div>              
     </div>
     <!-- /.box-body -->
