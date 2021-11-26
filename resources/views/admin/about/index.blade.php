@@ -143,7 +143,7 @@
                            <input type="file" name="background_image">
                            @if(!empty($detail->background_image))
                            <?php //dd($detail->logo) ?>
-                           <input type="hidden" name="current_image" value="{{@$detail->background_image}}">
+                           <!-- <input type="hidden" name="background_image" value="{{@$detail->background_image}}"> -->
                            <img style="width:100px; margin-top: 10px;" src="{{asset('images/main'.'/'.@$detail->background_image)}}">
                            @endif
                         </div>
@@ -153,7 +153,7 @@
                            <input type="file" name="main_image">
                            @if(!empty($detail->main_image))
                            <?php //dd($detail->logo) ?>
-                           <input type="hidden" name="current_image" value="{{@$detail->main_image}}">
+                           <!-- <input type="hidden" name="main_image" value="{{@$detail->main_image}}"> -->
                            <img style="width:100px; margin-top: 10px;" src="{{asset('images/main'.'/'.@$detail->main_image)}}">
                            @endif
                         </div>
