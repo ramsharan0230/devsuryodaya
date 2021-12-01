@@ -60,9 +60,7 @@
 					<img src="{{ asset('assets/img/testimonials/testimonials-6.jpg') }}" class="avatar rounded-circle bg-primary-light h-40 w-40" alt="" />
 				</a>
 				<div class="dropdown-menu">
-					<a class="dropdown-item my-5" href="extra_profile.html">My Profile</a>
-					<a class="dropdown-item my-5" href="mailbox.html">Inbox</a>
-					<a class="dropdown-item my-5" href="setting.html">Setting</a>
+					<a class="dropdown-item my-5" href="#">My Profile</a>
 					<a class="dropdown-item my-5" href="{{ route('admin.logout.perform') }}">Logout</a>
 			    </div>
 			</li>
