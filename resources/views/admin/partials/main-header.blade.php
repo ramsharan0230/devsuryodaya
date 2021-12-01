@@ -23,20 +23,7 @@
 					<i data-feather="menu"></i>
 			    </a>
 			</li>
-			<li class="btn-group d-lg-inline-flex d-none">
-				<div class="app-menu">
-					<div class="search-bx mx-5">
-						<form>
-							<div class="input-group">
-							  <input type="search" class="form-control" placeholder="Search">
-							  <div class="input-group-append">
-								<button class="btn" type="submit" id="button-addon3"><i class="icon-Search"><span class="path1"></span><span class="path2"></span></i></button>
-							  </div>
-							</div>
-						</form>
-					</div>
-				</div>
-			</li>
+			
 		</ul> 
 	  </div>
 		
@@ -57,7 +44,7 @@
 			<!-- User Account-->
 			<li class="dropdown user user-menu">
 				<a href="#" class="waves-effect waves-light dropdown-toggle w-auto l-h-12 bg-transparent p-0 no-shadow" title="User" data-bs-toggle="dropdown">
-					<img src="{{ asset('assets/img/testimonials/testimonials-6.jpg') }}" class="avatar rounded-circle bg-primary-light h-40 w-40" alt="" />
+					<img src="{{ asset('assets/img/logo.jpeg') }}" class="avatar rounded-circle bg-primary-light h-40 w-40" alt="" />
 				</a>
 				<div class="dropdown-menu">
 					<a class="dropdown-item my-5" href="#">My Profile</a>

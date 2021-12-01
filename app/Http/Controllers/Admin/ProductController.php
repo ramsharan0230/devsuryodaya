@@ -107,7 +107,7 @@ class ProductController extends Controller
     public function show($id)
     {
         $detail=$this->product->find($id);
-        return view('admin.product.show',compact('detail'));   
+        return view('admin.product.show', compact('detail'));   
     }
 
     /**
@@ -215,13 +215,13 @@ class ProductController extends Controller
 
         $rules =  [
             'title' => 'required|max:255',
-            'image'=>'sometimes|mimes:jpeg,bmp,png,jpg',
+            'image'=>'required|mimes:jpeg,bmp,png,jpg',
             'short_description'=>'sometimes|max: 2500',
             'description'=>'sometimes|max:15000',
             'subtitle' => 'sometimes|max:199',
             'subcategory_id' =>'required|numeric',
-            'service_id' => 'required|numeric',
-            'catalog_file'=> 'sometimes|mimes:doc,pdf,docx,zip'
+            'service_id' => 'sometimes|numeric',
+            'catalog_file'=> 'exclude_if:null, numeric|mimes:doc,pdf,docx,zip'
         ];
 
         return $rules;

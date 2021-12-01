@@ -44,7 +44,7 @@
 									</div>
 
 									<div class="form-group">
-										<label for="service_id">Select Service (required)</label>
+										<label for="service_id">Select Service (optional)</label>
 										<select name="service_id" id="service_id" class="form-control input-bordered">
 											<option value="" selected disabled>Choose Service</option>
 											@foreach ($services as $service)

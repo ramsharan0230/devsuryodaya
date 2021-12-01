@@ -42,7 +42,7 @@
 
 							<div class="form-group">
 								<label for="image">Upload Image</label>
-								<input type="file" id="image" name="image" class="form-control input-bordered">
+								<input type="file" id="image" name="feature_image" class="form-control input-bordered">
 								<img src="{{ asset('images/category').'/'.$detail->feature_image }}" width="100" height="100" alt="">
 							</div>
 
