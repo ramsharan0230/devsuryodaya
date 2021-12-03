@@ -40,8 +40,8 @@ class CategoryController extends Controller
         $value['publish']= is_null($request->publish)? 0: 1 ;
         $value['user_id'] = Auth::id();
 
-        if($request->hasFile('image')){
-            $image=$this->imageProcessing($request->file('image'));
+        if($request->hasFile('feature_image')){
+            $image=$this->imageProcessing($request->file('feature_image'));
             $value['feature_image']=$image;
         }
 
@@ -72,7 +72,7 @@ class CategoryController extends Controller
 
         $value['publish']= is_null($request->publish)? 0 : 1 ;
 
-        if($request->hasFile('image')){
+        if($request->hasFile('feature_image')){
             $image = $this->category->find($id);
             if($image->feature_image){
                 $thumbPath = public_path('images/category');
@@ -80,7 +80,7 @@ class CategoryController extends Controller
                     unlink($thumbPath.'/'.$image->feature_image);
                 }
             }
-            $image=$this->imageProcessing($request->file('image'));
+            $image=$this->imageProcessing($request->file('feature_image'));
             
             $value['feature_image']=$image;
         }
@@ -115,7 +115,7 @@ class CategoryController extends Controller
             mkdir($thumbPath, 0755, true);
         }
         $img1 = Image::make($image->getRealPath());
-        $img1->fit(856, 642)->save($thumbPath.'/'.$input['imagename']);
+        $img1->save($thumbPath.'/'.$input['imagename']);
         return $input['imagename'];   
     }
 
@@ -123,6 +123,7 @@ class CategoryController extends Controller
     {
         $rules =  [
             'name' => 'required',
+            'feature_image'=>'sometimes|mimes:png,jpg,jpeg',
             'order'=> 'required|numeric'
         ];
 
@@ -133,6 +134,7 @@ class CategoryController extends Controller
 
         $rules =  [
             'name' => 'required|unique:users,name,'. $oldId,
+            'feature_image'=>'sometimes|mimes:png,jpg,jpeg',
             'order'=> 'required|numeric'
         ];
 

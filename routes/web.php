@@ -77,8 +77,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
     });
 
-    Route::group(['middleware' => ['auth'], 'prefix'=>'admin', 'namespace'=>'Admin', 'as'=>'admin.'], function() {
-    // Route::group(['middleware' => ['auth', 'permission'], 'prefix'=>'admin', 'namespace'=>'Admin', 'as'=>'admin.'], function() {
+    // Route::group(['middleware' => ['auth'], 'prefix'=>'admin', 'namespace'=>'Admin', 'as'=>'admin.'], function() {
+    Route::group(['middleware' => ['auth', 'permission'], 'prefix'=>'admin', 'namespace'=>'Admin', 'as'=>'admin.'], function() {
 
         /**
          * Logout Routes
@@ -91,6 +91,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('/', 'HomeController@index')->name('home.index');
 
         Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+        Route::get('/profile/{slug}', 'HomeController@profile')->name('profile');
 
         /**
          * User Routes

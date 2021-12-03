@@ -1,24 +1,35 @@
 @extends('layouts.app-master')
-@section('title', 'Users')
+@section('title', 'User Update')
 
 @section('bradcrumb')
 <x-admin-bradcrumb >
-    <x-slot name="mainTitle"> Users</x-slot>
-    <x-slot name="subTitle"> List</x-slot>
+    <x-slot name="mainTitle"> User</x-slot>
+    <x-slot name="subTitle"> Update</x-slot>
 </x-admin-bradcrumb>
 @endsection
 
+
 @section('content')
 <div class="row">
-    <div class="box">
-        <div class="box-header with-border">
-          <h4 class="box-title"> Users</h4>
-          <a href="{{ route('admin.users.create') }}" class="btn btn-success pull-right"><i class="fa fa-plus"></i>  Add</a>
-        </div>
-        <!-- /.box-header -->
-        <div class="box-body">
-            
-            <div class="container mt-4">
+    <div class="col-sm-8">
+        <div class="box box-bordered border-primary">
+            <div class="box-header with-border">
+              <h4 class="box-title"> User</h4>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                
+                @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                        <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                        </ul>
+                    </div>
+                @endif
+
                 <form method="post" action="{{ route('admin.users.update', $user->id) }}">
                     @method('patch')
                     @csrf
@@ -72,13 +83,41 @@
                             <span class="text-danger text-left">{{ $errors->first('role') }}</span>
                         @endif
                     </div>
+
+                    <div class="mb-3">
+                        <div class="mb-3">
+                            <label for="password" class="form-label">password</label>
+                            <input 
+                                type="password" 
+                                class="form-control input-bordered" 
+                                name="password" 
+                                placeholder="Password ..." >
+                            @if ($errors->has('password'))
+                                <span class="text-danger text-left">{{ $errors->first('password') }}</span>
+                            @endif
+                        </div>
+        
+                        <div class="mb-3">
+                            <label for="password_confirmation" class="form-label">Confirm Password</label>
+                            <input 
+                                type="password" 
+                                class="form-control input-bordered" 
+                                name="password_confirmation" 
+                                placeholder="Confirm Password ..." >
+                            @if ($errors->has('password_confirmation'))
+                                <span class="text-danger text-left">{{ $errors->first('password_confirmation') }}</span>
+                            @endif
+                        </div>
+                    </div>
     
                     <button type="submit" class="btn btn-primary">Update user</button>
                     <a href="{{ route('admin.users.index') }}" class="btn btn-default">Cancel</button>
                 </form>
+
+                </div>
+                <!-- /.box-body -->
             </div>
-    
-        </div>
     </div>
 </div>
+
 @endsection

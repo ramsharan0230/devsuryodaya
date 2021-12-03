@@ -30,6 +30,8 @@ class UpdateUserRequest extends FormRequest
             'name' => 'required',
             'email' => 'required|email:rfc,dns|unique:users,email,'.$user->id,
             'username' => 'required|unique:users,username,'.$user->id,
+            'password' => 'sometimes|max:52|confirmed',
+            'password_confirmation' => 'sometimes|max:52'
         ];
     }
 }

@@ -79,9 +79,10 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user) 
     {
-        
+        // dd(redirect()->intended()->getTargetUrl());
+        return redirect()->route('admin.home.index');
         if(redirect()->intended()->getTargetUrl() == "http://127.0.0.1:8000")
-            return redirect('/admin');
+            return redirect()->route('admin.home.index');
 
         return redirect()->intended();
     }

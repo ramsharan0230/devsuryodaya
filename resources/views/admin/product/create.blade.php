@@ -44,7 +44,7 @@
 									</div>
 
 									<div class="form-group">
-										<label for="service_id">Select Service (required)</label>
+										<label for="service_id">Select Service (optional)</label>
 										<select name="service_id" id="service_id" class="form-control input-bordered">
 											<option value="" selected disabled>Choose Service</option>
 											@foreach ($services as $service)
@@ -79,7 +79,7 @@
 						
 							<div class="form-group">
 								<label>Upload Image</label>
-								<input type="file" name="image" class="form-control input-bordered">
+								<input type="file" name="image" class="form-control input-bordered" required>
 							</div>
 							
 							<div class="form-group">

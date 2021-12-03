@@ -47,9 +47,7 @@
 				  <a href="#">
 					<i data-feather="database"></i>
 					<span>Users</span>
-					<span class="pull-right-container">
-					  <i class="fa fa-users pull-right"></i>
-					</span>
+					
 				  </a>
 				  <ul class="treeview-menu">					
 					<li><a href="{{ route('admin.users.index') }}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Users</a></li>
