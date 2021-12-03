@@ -79,7 +79,7 @@
 						
 							<div class="form-group">
 								<label>Upload Image</label>
-								<input type="file" name="image" class="form-control input-bordered">
+								<input type="file" name="image" class="form-control input-bordered" required>
 							</div>
 							
 							<div class="form-group">

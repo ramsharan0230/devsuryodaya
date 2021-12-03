@@ -45,32 +45,32 @@
 								<textarea class="form-control input-bordered" id="designation" name="designation" rows="3">{{$detail->designation}}</textarea>
 							</div>
 							<div class="form-group">
-								<label for="quote">Quote</label>
-								<textarea class="form-control input-bordered" name="quote" rows="3" placeholder="Enter your Quote...">{{$detail->quote??old('quote')}}</textarea>
+								<label>Quote</label>
+								<textarea class="form-control" name="quote" id="editor" rows="3" placeholder="Enter your Quote...">{{ $detail->quote }}</textarea>
 							</div>
 						</div>
 						<div class="col-md-4">
-									<div class="form-group">
-									<label>Upload Image</label>
-									<input type="file" name="image" class="form-control input-bordered" value="{{ $detail->image }}">
-									@if($detail->image)
-									<img width="400px" height="200px" src="{{ asset('images/testimonial').'/'.$detail->image }}" alt="">
-									@endif
-									</div>
+							<div class="form-group">
+							<label>Upload Image</label>
+							<input type="file" name="image" class="form-control input-bordered" value="{{ $detail->image }}">
+							@if($detail->image)
+							<img width="400px" height="200px" src="{{ asset('images/testimonial').'/'.$detail->image }}" alt="">
+							@endif
+							</div>
 
-									<div class="form-group">
-										<label for="order">Order</label>
-										<input type="text" name="order" id="order" class="form-control input-bordered" value="{{ $detail->order }}" placeholder="Type Order ...">
-									</div>
-									
-									<div class="form-group">
-										<input type="checkbox" name="publish" id="basic_checkbox_1" class="filled-in" {{ is_null($detail->publish)?"":"checked" }}>
-										<label for="basic_checkbox_1" class="mb-0 h-15">Publish</label>
-									</div>
+							<div class="form-group">
+								<label for="order">Order</label>
+								<input type="text" name="order" id="order" class="form-control input-bordered" value="{{ $detail->order }}" placeholder="Type Order ...">
+							</div>
+							
+							<div class="form-group">
+								<input type="checkbox" name="publish" id="basic_checkbox_1" class="filled-in" {{ is_null($detail->publish)?"":"checked" }}>
+								<label for="basic_checkbox_1" class="mb-0 h-15">Publish</label>
+							</div>
 
-									<div class="form-group">
-										<input type="submit" name="" class="btn btn-success">
-									</div>
+							<div class="form-group">
+								<input type="submit" name="" class="btn btn-success">
+							</div>
 						</div>
 					</div>
 				</form>

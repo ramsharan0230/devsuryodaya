@@ -215,7 +215,7 @@ class ProductController extends Controller
 
         $rules =  [
             'title' => 'required|max:255',
-            'image'=>'required|mimes:jpeg,bmp,png,jpg',
+            'image'=>'sometimes|mimes:jpeg,bmp,png,jpg',
             'short_description'=>'sometimes|max: 2500',
             'description'=>'sometimes|max:15000',
             'subtitle' => 'sometimes|max:199',

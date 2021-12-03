@@ -88,7 +88,7 @@
 						<div class="col-md-4">
 							<div class="form-group">
 								<label>Upload Image</label>
-								<input type="file" name="image" class="form-control input-bordered">
+								<input type="file" name="image" class="form-control input-bordered" required>
 
 								@if($detail->image)
 								<img width="400px" height="200px" src="{{ asset('images/product').'/'.$detail->image }}" alt="">
@@ -96,12 +96,11 @@
 							</div>
 						
 
-					
 							<div class="form-group">
 								<label>Upload Catalog</label>
 								
+								@if($detail->catalog !==null)
 								<input type="file" name="catalog_file" class="form-control input-bordered" value="{{ $detail->catalog->catalog_file }}">
-								@if($detail->catalog)
 									{{ $detail->catalog->title }} ({{ $detail->catalog->catalog_file }})
 								@else
 								<p>N/A</p>

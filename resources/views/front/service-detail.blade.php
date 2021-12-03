@@ -1,6 +1,6 @@
 
 @extends('layouts.front-master')
-@section('title', 'About Us')
+@section('title', $service->title)
 
 @section('content')
 <main id="main">
@@ -9,7 +9,7 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Service Detail</h2>
+          <h2>{{ $service->title }}</h2>
           <ol>
             <li><a href="{{ route('home')}}">Home</a></li>
             <li>Service Detail</li>
@@ -31,7 +31,7 @@
           <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
             <div class="items-detail " data-aos="fade-up">
               <h2>{{ $service->title }}</h2>
-              <time> <strong>{{ $service->created_at }}</strong></time>
+              <time><i class="fal fa-alarm-exclamation"></i> <strong>{{ $service->created_at->format('M, d Y H:i:s A') }}</strong></time>
               <p class="description">
                   {!! $service->description !!}
               </p><br><br>

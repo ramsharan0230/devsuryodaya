@@ -33,8 +33,29 @@ class HomeController extends Controller
         $videoCount = Video::count();
 
         return view('admin.home.index', compact('permissionCount', 'userCount', 'roleCount', 'sliderCount',
-        'categoryCount', 'subcategoryCount', 'serviceCount', 'testimonialCount'
-        ,'catalogCount', 'videoCount', 'productCount'
-    ));
+            'categoryCount', 'subcategoryCount', 'serviceCount', 'testimonialCount'
+            ,'catalogCount', 'videoCount', 'productCount'
+        ));
+    }
+
+    public function profile($username){
+        $permissions = [];
+        $user = User::where('username', $username)->first();
+        if(!$user)
+            return view('front.page-not-found'); 
+        
+            // dd($user->roles->all());
+        // foreach($user->roles->all() as $role){
+        //     foreach($role->permissions as $permission){
+        //         // array_push($permissions, $permission->name);
+        //         echo $permission;
+        //     }
+        // }
+        // dd($permission);
+        // $rolePermissions = Permission::join("role_has_permissions","role_has_permissions.permission_id","=","permissions.id")
+        //     ->where("role_has_permissions.role_id",$id)
+        //     ->get();
+        // dd($user->roles->pluck('name','name')->all());
+        return view('admin.users.profile', compact('user'));
     }
 }
