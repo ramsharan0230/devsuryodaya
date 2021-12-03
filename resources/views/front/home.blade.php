@@ -8,7 +8,7 @@
   <main id="main">
 
     <!-- ======= Cta Section ======= -->
-    <section id="cta" class="cta">
+    <!-- <section id="cta" class="cta">
       <div class="container">
 
         <div class="row">
@@ -22,7 +22,8 @@
         </div>
 
       </div>
-    </section><!-- End Cta Section -->
+    </section> -->
+    <!-- End Cta Section -->
 
 
     <!-- ======= About Us Section ======= -->
