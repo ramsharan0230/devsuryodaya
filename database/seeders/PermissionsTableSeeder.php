@@ -17,7 +17,8 @@ class PermissionsTableSeeder extends Seeder
     public function run()
     {
         $permissions = [
-            'admin.home.index', 'admin.about.index', 'admin.about.create', 'admin.about.store', 'admin.about.destroy', 'admin.about.edit', 
+            'admin.profile', 'admin.news-event.index', 'admin.news-event.create', 'admin.news-event.store', 'admin.news-event.edit', 'admin.news-event.update', 'admin.news-event.destroy',
+            'admin.news-event.show', 'admin.home.index', 'admin.about.index', 'admin.about.create', 'admin.about.store', 'admin.about.destroy', 'admin.about.edit', 
             'admin.about.update', 'admin.blog.index', 'admin.blog.create', 'admin.blog.store', 'admin.blog.destroy', 'admin.blog.edit', 'admin.blog.update', 
             'admin.catalog.index', 'admin.catalog.create', 'admin.catalog.store', 'admin.catalog.destroy', 'admin.catalog.edit', 'admin.catalog.update', 
             'admin.category.index', 'admin.category.create', 'admin.category.store', 'admin.category.destroy', 'admin.category.edit', 'admin.category.update', 

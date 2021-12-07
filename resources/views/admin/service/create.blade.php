@@ -35,12 +35,12 @@
 				<div class="col-md-8">
 					<div class="form-group">
 						<label for="title">Title (required)</label>
-						<input type="text" name="title" class="form-control input-bordered" value="{{old('title')}}" placeholder="Type Title ...">
+						<input type="text" name="title" class="form-control input-bordered" value="{{old('title')}}" placeholder="Service Title ...">
 					</div>
 
 					<div class="form-group">
 						<label for="order">Order</label>
-						<input type="text" name="order" class="form-control input-bordered" value="{{old('order')}}" placeholder="Type Order like 1, 2, 3 ...">
+						<input type="text" name="order" class="form-control input-bordered" value="{{old('order')}}" placeholder="Service Order like 1, 2, 3 ...">
 					</div>
 
 					<div class="form-group">

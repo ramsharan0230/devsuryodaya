@@ -93,7 +93,6 @@
       </div>
     </section><!-- End Services Section -->
 
-@if(count($mainServices))
     <!-- ======= Latest Products Section ======= -->
     <section id="latest-products" class="latest-products">
       <div class="container">
@@ -116,7 +115,7 @@
                     </p>
                   </div>
                 </div>
-                <!-- <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                   <div class="latest-items aos-init aos-animate">
                     <a href="{{ route('service-detail', $item->slug) }}"> <img src="/front/assets/img/ifill1280.jpg"></a>
                     <h4 class="title"><a href="{{ route('service-detail', $item->slug) }}">{{ $item->subtitle }}</a></h4>
@@ -125,7 +124,7 @@
                       {{ $item->short_description }}
                     </p>
                   </div>
-                </div> -->
+                </div>
               </div>
             </div>
             @empty
@@ -142,7 +141,6 @@
 
       </div>
     </section><!-- End  Latest Products Section -->
-    @endif
     <section>
       <div class="container">
 
@@ -173,4 +171,4 @@
     <!-- ======= End Video Section ======= -->
 
   </main><!-- End #main -->
-@endsection
+  @endsection

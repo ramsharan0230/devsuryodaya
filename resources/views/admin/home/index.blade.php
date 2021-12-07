@@ -14,7 +14,7 @@
     <div class="row">
         
         <div class="col-xl-3 col-sm-3 col-12">			
-            <div class="box bg-google box-inverse pull-up">
+            <div class="box pull-up">
                 <div class="box-body">
                     <div class="flex-column">
                       <div class="row">
@@ -53,7 +53,7 @@
         </div>
 
       <div class="col-xl-3 col-sm-3 col-12">			
-        <div class="box bg-google bg-twitter pull-up">
+        <div class="box pull-up">
             <div class="box-body">
                 <div class="flex-column">
                   <div class="row">
@@ -72,7 +72,7 @@
       </div>
 
       <div class="col-xl-3 col-sm-3 col-12">			
-        <div class="box bg-google bg-inverse pull-up">
+        <div class="box pull-up">
             <div class="box-body">
                 <div class="flex-column">
                   <div class="row">
@@ -91,7 +91,7 @@
       </div>
 
       <div class="col-xl-3 col-sm-3 col-12">			
-        <div class="box bg-flickr bg-inverse pull-up">
+        <div class="box pull-up">
             <div class="box-body">
                 <div class="flex-column">
                   <div class="row">
@@ -110,7 +110,7 @@
       </div>
 
       <div class="col-xl-3 col-sm-3 col-12">			
-        <div class="box bg-dropbox bg-inverse pull-up">
+        <div class="box pull-up">
             <div class="box-body">
                 <div class="flex-column">
                   <div class="row">
@@ -129,7 +129,7 @@
       </div>
 
       <div class="col-xl-3 col-sm-3 col-12">			
-        <div class="box bg-foursquare bg-inverse pull-up">
+        <div class="box pull-up">
             <div class="box-body">
                 <div class="flex-column">
                   <div class="row">
@@ -148,7 +148,7 @@
       </div>
 
       <div class="col-xl-3 col-sm-3 col-12">			
-        <div class="box bg-instagram bg-inverse pull-up">
+        <div class="box pull-up">
             <div class="box-body">
                 <div class="flex-column">
                   <div class="row">
@@ -167,7 +167,7 @@
       </div>
       
       <div class="col-xl-3 col-sm-3 col-12">			
-        <div class="box bg-instagram bg-inverse pull-up">
+        <div class="box pull-up">
             <div class="box-body">
                 <div class="flex-column">
                   <div class="row">
@@ -186,7 +186,7 @@
       </div>
 
       <div class="col-xl-3 col-sm-3 col-12">			
-        <div class="box bg-google pull-up">
+        <div class="box pull-up">
             <div class="box-body" style="color:wheat">
                 <div class="flex-column">
                   <div class="row">
@@ -224,7 +224,7 @@
       </div>
 
       <div class="col-xl-3 col-sm-3 col-12">			
-        <div class="box bg-github pull-up">
+        <div class="box pull-up">
             <div class="box-body">
                 <div class="flex-column">
                   <div class="row">

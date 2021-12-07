@@ -16,7 +16,6 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-
 				@if (count($errors) > 0)
 				<div class="alert alert-danger message">
 					<button type="button" class="close" data-dismiss="alert" aria-label="Close">

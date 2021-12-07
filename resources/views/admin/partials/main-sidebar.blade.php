@@ -168,6 +168,20 @@
 
 				<li class="treeview">
 					<a href="#">
+					  <i data-feather="headphones"></i>
+					  <span>News & Event</span>
+					  <span class="pull-right-container">
+						<i class="fa fa-angle-right pull-right"></i>
+					  </span>
+					</a>					
+					<ul class="treeview-menu">					
+					  <li><a href="{{ route('admin.news-event.index') }}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>List</a></li>
+					  <li><a href="{{ route('admin.news-event.create') }}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i> Add News & Event</a></li>					
+					</ul>
+				  </li>
+
+				<li class="treeview">
+					<a href="#">
 					  <i data-feather="folder"></i>
 					  <span>Testimonial</span>
 					  <span class="pull-right-container">

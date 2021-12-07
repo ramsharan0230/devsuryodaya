@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Testimonial;
 use App\Models\Service;
 use App\Models\Blog;
+use App\Models\NewsEvent;
 use App\Models\Contact;
 use App\Models\Subscription;
 use App\Models\Product;
@@ -90,6 +91,26 @@ class PagesController extends Controller
         })->get();
 
         return view('front.search-detail', compact('searchedItems', 'search'));
+    }
+
+    public function newsEvent(){
+        $newsEvents = NewsEvent::where('publish', 1)->orderBy('order', 'desc')->paginate(6);
+        $recentNewsEvent = NewsEvent::where('publish', 1)->orderBy('created_at', 'desc')->get();
+        return view('front.news-event', compact('newsEvents', 'recentNewsEvent'));
+    }
+
+    public function newsEventDetail($slug){
+        $newsEvent = NewsEvent::where('slug', $slug)->first();
+        if(!$newsEvent)
+            return view('front.page-not-found'); 
+        
+        $title = $newsEvent->title;
+        $reletedNewsEvents = NewsEvent::where('publish', 1)->whereNotIn('id', [$newsEvent->id])->where(function($query) use ($title) {
+            $query->where('title', 'LIKE', '%'.$title.'%')
+                ->orWhere('description', 'LIKE', '%'.$title.'%')
+                ->orWhere('short_description', 'LIKE', '%'.$title.'%');
+        })->take(4)->get();
+        return view('front.blog-detail', compact('blog', 'reletedBlogs'));
     }
 
     public function blogs(){

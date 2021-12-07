@@ -80,7 +80,7 @@ class ProductController extends Controller
             $request->catalog_file->move(public_path('catalogs'), $fileName);
             $catalog['catalog_file'] = $fileName;
         }
-;
+
         $catalog['order'] = $request->order;
         $catalog['publish'] = $value['publish'];
         $catalog['product_id'] = $product->id;

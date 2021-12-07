@@ -53,7 +53,7 @@
           </ul>
         </li>
         <li><a href="{{ route('about') }}">About Us</a></li>
-        <li><a href="{{ route('blogs') }}">Blog</a></li>
+        <li><a href="{{ route('news-event') }}">News & Event</a></li>
 
         <li><a href="{{ route('contact') }}">Contact</a></li>
         <li>

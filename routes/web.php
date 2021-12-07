@@ -14,7 +14,7 @@ use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\ContactController;
-
+use App\Http\Controllers\Admin\NewsEventController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,8 +47,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('/services', 'PagesController@services')->name('services');
         Route::get('/service-detail/{slug}', 'PagesController@serviceDetail')->name('service-detail');
 
-        Route::get('/blogs', 'PagesController@blogs')->name('blogs');
-        Route::get('/blog-detail/{slug}', 'PagesController@blogDetail')->name('blog-detail');
+        Route::get('/news-event', 'PagesController@newsEvent')->name('news-event');
+        Route::get('/news-event/{slug}', 'PagesController@newsEventDetail')->name('news-event-detail');
 
         Route::get('/categories', 'PagesController@categories')->name('categories');
         Route::get('/category/{slug}', 'PagesController@subcategory')->name('category');
@@ -202,6 +202,18 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             Route::put('/{id}/update', [TestimonialController::class, 'update'])->name('update');
             Route::delete('/{id}/delete', [TestimonialController::class, 'destroy'])->name('destroy'); 
         });
+
+        //News & Events
+        Route::group(['prefix' => 'news-event', 'as'=>'news-event.'], function() {
+            Route::get('/', [NewsEventController::class, 'index'])->name('index'); 
+            Route::get('/create', [NewsEventController::class, 'create'])->name('create'); 
+            Route::post('/store', [NewsEventController::class, 'store'])->name('store'); 
+            Route::get('/show/{slug}', [NewsEventController::class, 'show'])->name('show'); 
+            Route::get('/{id}/edit', [NewsEventController::class, 'edit'])->name('edit'); 
+            Route::put('/{id}/update', [NewsEventController::class, 'update'])->name('update');
+            Route::delete('/{id}/delete', [NewsEventController::class, 'destroy'])->name('destroy'); 
+        });
+
 
 
         //Catalog
