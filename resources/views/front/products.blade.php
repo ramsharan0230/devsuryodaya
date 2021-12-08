@@ -32,11 +32,13 @@
       <div class="row">
         @forelse ($products as $item)
         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-          <div class="hovereffect">
-            <img class="img-responsive" src="{{ asset('images/product').'/'.$item->image }}" alt="">
-            <div class="overlay">
-              <h2>{{ $item->title}}</h2>
-              <a class="info" href="{{ route('product-detail', $item->slug ) }}">Know More</a>
+          <div class="product-bd">
+            <div class="hovereffect">
+              <img class="img-responsive" src="{{ asset('images/product').'/'.$item->image }}" alt="">
+              <div class="overlay">
+                <!-- <h2>{{ $item->title}}</h2> -->
+                <a class="info" href="{{ route('product-detail', $item->slug ) }}">{{ $item->title}}</a>
+              </div>
             </div>
           </div>
         </div>
