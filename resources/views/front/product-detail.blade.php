@@ -1,58 +1,124 @@
 @extends('layouts.front-master')
 @section('title', $product->title)
+@push('styles')
+<style>
+    .course-title {
+        display: flex;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 34px;
+        color: #000;
+        margin: 50px;
+    }
 
+    ul {
+        list-style: none;
+    }
+
+    .image-gallery {
+        /* max-width: 320px;
+        margin: 10px auto; */
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    .image-gallery img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border: 4px solid #ededed;
+        box-shadow: 0 2px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    ul.thumbnails {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    ul.thumbnails li {
+        margin: 0 10px;
+    }
+
+    ul.thumbnails li a img {
+        border: 4px solid #ededed;
+        box-shadow: 0 2px 25px rgba(0, 0, 0, 0.2);
+        max-width: 115px;
+    }
+</style>
+@endpush
 @section('content')
 <main id="main">
 
     <section id="breadcrumbs" class="breadcrumbs">
-      <div class="container">
+        <div class="container">
 
-        <div class="d-flex justify-content-between align-items-center">
-          <h2>Product Detail</h2>
-          <ol>
-            <li><a href="{{ route('home')}}">Home</a></li>
-            <li>{{$product->title}}</li>
-          </ol>
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>Product Detail</h2>
+                <ol>
+                    <li><a href="{{ route('home')}}">Home</a></li>
+                    <li>{{$product->title}}</li>
+                </ol>
+            </div>
+
         </div>
-
-      </div>
     </section><!-- End Breadcrumbs -->
     <section id="oxygen-section" class="oxygen-section">
         <div class="container">
-        <div class="section-title aos-init aos-animate" data-aos="fade-up">
-            <h2>{{$product->title}}</h2>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
-            <div class="items-detail " data-aos="fade-up">
-                <img src="{{ asset('images/product').'/'.$product->image }}">
+            <div class="section-title aos-init aos-animate" data-aos="fade-up">
+                <h2>{{$product->title}}</h2>
             </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
-            <div class="items-detail " data-aos="fade-up">
-                <strong>{{ $product->subtitle }}</strong>
-                <p class="description">{{ $product->short_description }}</p>
-                <p class="description">{!! $product->description !!}</p>
-            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+                    <div class="items-detail " data-aos="fade-up">
+                        <div>
+                            <div class="image-gallery">
+                                <img src="https://demo.sirv.com/chair.jpg?hue=-100 " alt="">
+                            </div>
+                            <ul class="thumbnails">
+                                <li>
+                                    <a href="https://demo.sirv.com/chair.jpg?hue=-100  "><img src="https://demo.sirv.com/chair.jpg?hue=-100  " alt="">
+                                    </a>
+                                </li>
+                                <li><a href="https://demo.sirv.com/chair.jpg?hue=-44 "><img src="https://demo.sirv.com/chair.jpg?hue=-44 " alt=""></a>
 
-            @forelse ($product->catalogs as $catalog)
-            <div class="alert alert-secondary" role="alert">
-                <div class="row">
-                    <div class="col-sm-8">
-                        <span>{{ $catalog->title }}</span>
-                    </div>
-                    <div class="col-sm-4">
-                        <a href="{{ $catalog->catalog_file }}" download class="btn btn-secondary btn-sm float-end"><i class="fa fa-download"></i> Download</a>
+                                </li>
+                                <li><a href="https://demo.sirv.com/chair.jpg?hue=0"><img src="https://demo.sirv.com/chair.jpg?hue=0" alt=""></a>
+
+                                </li>
+                                <li><a href="https://demo.sirv.com/chair.jpg?hue=11"><img src="https://demo.sirv.com/chair.jpg?hue=11" alt=""></a></li>
+                            </ul>
+                        </div>
+
                     </div>
                 </div>
-            </div>
-            @empty
-                
-            @endforelse
-            
+                <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
+                    <div class="items-detail " data-aos="fade-up">
+                        <strong>{{ $product->subtitle }}</strong>
+                        <p class="description">{{ $product->short_description }}</p>
+                        <p class="description">{!! $product->description !!}</p>
+                    </div>
+
+                    @forelse ($product->catalogs as $catalog)
+                    <div class="alert alert-secondary" role="alert">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <span>{{ $catalog->title }}</span>
+                            </div>
+                            <div class="col-sm-4">
+                                <a href="{{ $catalog->catalog_file }}" download class="btn btn-secondary btn-sm float-end"><i class="fa fa-download"></i> Download</a>
+                            </div>
+                        </div>
+                    </div>
+                    @empty
+
+                    @endforelse
 
 
-            {{-- <div class="table-div" data-aos="fade-up">
+
+                    {{-- <div class="table-div" data-aos="fade-up">
                 <strong>Product Varients</strong>
                 <table class="table table-striped">
                 <thead>
@@ -65,16 +131,16 @@
                     @forelse ($varients as $item)
                     <tr>
                         <td>{{$item->price}}</td>
-                        <td>{{$item->title }}</td>
+                    <td>{{$item->title }}</td>
                     </tr>
                     @empty
-                        
+
                     @endforelse
-                    
-                </tbody>
-                </table>
-            </div> --}}
-            {{-- <div class="table-div" data-aos="fade-up">
+
+                    </tbody>
+                    </table>
+                </div> --}}
+                {{-- <div class="table-div" data-aos="fade-up">
                 <strong>Technical Data</strong>
                 <table class="table table-striped">
                 <thead>
@@ -87,17 +153,27 @@
                     @forelse ($tech_details as $detail)
                     <tr>
                         <td>{{$detail->price}}</td>
-                        <td>{{$detail->title }}</td>
-                    </tr>
-                    @empty
-                        
-                    @endforelse
+                <td>{{$detail->title }}</td>
+                </tr>
+                @empty
+
+                @endforelse
                 </tbody>
                 </table>
             </div> --}}
-            </div>
+        </div>
         </div>
         </div>
     </section><!-- oxygen-section -->
 </main>
-  @endsection
+@endsection
+@push('scripts')
+<script>
+    $(document).ready(function() {
+        $('.thumbnails a').click(function(e) {
+            e.preventDefault();
+            $('.image-gallery img').attr('src', $(this).attr('href'));
+        })
+    });
+</script>
+@endpush

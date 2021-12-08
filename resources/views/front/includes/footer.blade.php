@@ -39,8 +39,8 @@
         </div>
 
         <div class="col-lg-4 col-md-6 footer-newsletter">
-          <h4>Join Our Newsletter</h4>
-          <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+          <h4>You Can Sign Up For Our Mailing List Here.</h4>
+          <p>Sign up to receive email updates on new Products, Events, Announcements, Special Promotion, Sales and More</p>
           @if(Session::has('message'))
           <div class="alert alert-success alert-dismissible message">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
