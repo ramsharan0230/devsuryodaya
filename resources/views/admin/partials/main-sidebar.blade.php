@@ -168,6 +168,20 @@
 
 				<li class="treeview">
 					<a href="#">
+					  <i data-feather="list"></i>
+					  <span>Gallery</span>
+					  <span class="pull-right-container">
+						<i class="fa fa-angle-right pull-right"></i>
+					  </span>
+					</a>
+					<ul class="treeview-menu">					
+					  <li><a href="{{ route('admin.product-gallery.index') }}"><i data-feather="list"><span class="path1"></span><span class="path2"></span></i> List</a></li>
+					  <li><a href="{{ route('admin.product-gallery.create') }}"><i data-feather="plus-square"><span class="path1"></span><span class="path2"></span></i> Add Gallery</a></li>					
+					</ul>
+				</li>
+
+				<li class="treeview">
+					<a href="#">
 					  <i data-feather="headphones"></i>
 					  <span>News & Event</span>
 					  <span class="pull-right-container">
