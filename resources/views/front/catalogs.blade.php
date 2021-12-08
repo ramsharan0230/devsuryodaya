@@ -38,14 +38,14 @@
                     <?php
                         $ext = pathinfo($catalog->catalog_file, PATHINFO_EXTENSION);
                         if ($ext == 'pdf') { ?>
-                            <a href="{{ asset('catalogs').'/'.$catalog->catalog_file }}" class="s-site-btn" download>
+                            <a href="{{ asset('catalogs').'/'.$catalog->catalog_file }}" class="s-site-btn" target="_blank">
                                 <img class="img-responsive" src="{{('assets/img/pdf_file_sample.png')}}" alt=""><br>
                                 {{$catalog->title}}
                             </a>
                         <?php }
 
                         if ($ext == 'jpg' || $ext == 'jpeg' || $ext == 'png') { ?>
-                            <a href="{{ asset('assets/img/catalog.jpg')}}" class="s-site-btn" download>
+                            <a href="{{ asset('assets/img/catalog.jpg')}}" class="s-site-btn" target="_blank">
                                 <img class="img-responsive" src="{{('assets/img/pdf_file_sample.png')}}" alt=""><br>
                                 {{$catalog->title}}
                             </a>
