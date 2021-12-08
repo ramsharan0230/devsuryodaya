@@ -89,6 +89,13 @@
 
 							<div class="form-group">
 								<div class="form-group">
+									<input type="checkbox" value="1" name="featured" id="basic_checkbox" class="filled-in">
+									<label for="basic_checkbox" class="mb-0 h-15">Featured</label>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="form-group">
 									<input type="checkbox" value="1" name="publish" id="basic_checkbox_1" class="filled-in" checked>
 									<label for="basic_checkbox_1" class="mb-0 h-15">Publish</label>
 								</div>

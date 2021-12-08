@@ -60,6 +60,7 @@ class ProductController extends Controller
         $value['subcategory_id']=$request->subcategory_id;
 
         $value['publish']= is_null($request->publish)? 0 : 1 ;
+        $value['featured']= is_null($request->featured)? 0 : 1 ;
         
         if($request->image){
             $image=$this->imageProcessing($request->file('image'));
@@ -125,6 +126,7 @@ class ProductController extends Controller
         $value = $request->except('image','publish');
 
         $value['publish']= is_null($request->publish)? 0 : 1 ;
+        $value['featured']= is_null($request->featured)? 0 : 1 ;
 
         if($request->hasFile('image')){
             $image=$this->product->find($id);

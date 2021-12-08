@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SiteSettingController;
 use App\Http\Controllers\Admin\SubcategoryController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ProductGalleryController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\CatalogController;
@@ -180,6 +181,18 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             Route::put('/{id}/update', [ProductController::class, 'update'])->name('update');
             Route::delete('/{id}/delete', [ProductController::class, 'destroy'])->name('destroy'); 
             Route::get('category/{id}/product-veriety', [ProductController::class, 'categoryByProductVeriety'])->name('category.product-veriety');
+        });
+
+        //product gallery
+        Route::group(['prefix' => 'product-gallery', 'as'=>'product-gallery.'], function() {
+            Route::get('/', [ProductGalleryController::class, 'index'])->name('index'); 
+            Route::get('/create', [ProductGalleryController::class, 'create'])->name('create'); 
+            Route::post('/store', [ProductGalleryController::class, 'store'])->name('store'); 
+            Route::get('/{id}/edit', [ProductGalleryController::class, 'edit'])->name('edit'); 
+            Route::get('/{id}/show', [ProductGalleryController::class, 'show'])->name('show'); 
+            Route::put('/{id}/update', [ProductGalleryController::class, 'update'])->name('update');
+            Route::delete('/{id}/delete', [ProductGalleryController::class, 'destroy'])->name('destroy'); 
+            Route::get('category/{id}/product-veriety', [ProductGalleryController::class, 'categoryByProductVeriety'])->name('category.product-veriety');
         });
 
         //Slider

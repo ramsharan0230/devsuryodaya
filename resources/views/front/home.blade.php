@@ -103,31 +103,34 @@
       </div>
       <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" data-aos="fade-up">
         <div class="carousel-inner">
-          @forelse ($mainProducts as $key=>$item)
-          <div class="carousel-item {{ $key==0?"active":""}}">
-            <div class="row">
-              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                <div class="latest-items aos-init aos-animate">
-                  <a href="{{ route('product-detail', $item->slug) }}"> <img src="{{ asset('images/product').'/'.$item->image }}"></a>
-                  <h4 class="title"><a href="{{ route('product-detail', $item->slug) }}">{{ $item->title }}</a></h4>
-                  <!-- <strong>{{ $item->title }}</strong> -->
-                  <p class="description">
-                    <!-- {{ $item->short_description }} -->
-                  </p>
-                </div>
-              </div>
-              <!-- <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          @forelse ($featuredProducts->chunk(3) as $key=>$items)
+            <div class="carousel-item {{ $key==0?"active":""}}">
+              <div class="row">
+                @foreach($items as $item)
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                   <div class="latest-items aos-init aos-animate">
-                    <a href="{{ route('service-detail', $item->slug) }}"> <img src="/front/assets/img/ifill1280.jpg"></a>
-                    <h4 class="title"><a href="{{ route('service-detail', $item->slug) }}">{{ $item->subtitle }}</a></h4>
-                    <strong>{{ $item->title }}</strong>
+                    <a href="{{ route('product-detail', $item->slug) }}"> <img src="{{ asset('images/product').'/'.$item->image }}"></a>
+                    <h4 class="title"><a href="{{ route('product-detail', $item->slug) }}">{{ $item->title }}</a></h4>
+                    <!-- <strong>{{ $item->title }}</strong> -->
                     <p class="description">
-                      {{ $item->short_description }}
+                      <!-- {{ $item->short_description }} -->
                     </p>
                   </div>
-                </div> -->
+                </div>
+                @endforeach
+                <!-- <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <div class="latest-items aos-init aos-animate">
+                      <a href="{{ route('service-detail', $item->slug) }}"> <img src="/front/assets/img/ifill1280.jpg"></a>
+                      <h4 class="title"><a href="{{ route('service-detail', $item->slug) }}">{{ $item->subtitle }}</a></h4>
+                      <strong>{{ $item->title }}</strong>
+                      <p class="description">
+                        {{ $item->short_description }}
+                      </p>
+                    </div>
+                  </div> -->
+              </div>
             </div>
-          </div>
+          
           @empty
 
           @endforelse

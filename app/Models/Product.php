@@ -12,7 +12,7 @@ class Product extends Model
 
     protected $table = 'products';
     protected $fillable = ['title', 'subtitle', 'subcategory_id', 'service_id', 'short_description', 'description', 'slug', 'published_date', 'image', 'user_id', 'order', 'meta_title', 'meta_description',
-    'publish', 'user_id' ];
+    'publish', 'user_id', 'featured' ];
 
     public function sluggable(): array
     {
@@ -33,5 +33,9 @@ class Product extends Model
 
     public function catalogs(){
         return $this->hasMany(Catalog::class);
+    }
+
+    public function galleries(){
+        return $this->hasMany(ProductGallery::class);
     }
 }

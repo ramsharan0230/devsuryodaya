@@ -75,20 +75,14 @@
                     <div class="items-detail " data-aos="fade-up">
                         <div>
                             <div class="image-gallery">
-                                <img src="https://demo.sirv.com/chair.jpg?hue=-100 " alt="">
+                                <img src="{{ asset('images/product').'/'.$product->image }}" alt="">
                             </div>
                             <ul class="thumbnails">
-                                <li>
-                                    <a href="https://demo.sirv.com/chair.jpg?hue=-100  "><img src="https://demo.sirv.com/chair.jpg?hue=-100  " alt="">
-                                    </a>
-                                </li>
-                                <li><a href="https://demo.sirv.com/chair.jpg?hue=-44 "><img src="https://demo.sirv.com/chair.jpg?hue=-44 " alt=""></a>
-
-                                </li>
-                                <li><a href="https://demo.sirv.com/chair.jpg?hue=0"><img src="https://demo.sirv.com/chair.jpg?hue=0" alt=""></a>
-
-                                </li>
-                                <li><a href="https://demo.sirv.com/chair.jpg?hue=11"><img src="https://demo.sirv.com/chair.jpg?hue=11" alt=""></a></li>
+                                @forelse ($product->galleries as $gallery)
+                                    <li><a href="{{ asset('images/product_gallery').'/'.$gallery->image }}"><img src="{{ asset('images/product_gallery').'/'.$gallery->image }}" alt=""></a></li>
+                                @empty
+                                    <p>No more picture</p>
+                                @endforelse
                             </ul>
                         </div>
 
@@ -102,6 +96,7 @@
                     </div>
 
                     @forelse ($product->catalogs as $catalog)
+                    @if($catalog->catalog_file !=null)
                     <div class="alert alert-secondary" role="alert">
                         <div class="row">
                             <div class="col-sm-8">
@@ -112,6 +107,7 @@
                             </div>
                         </div>
                     </div>
+                    @endif
                     @empty
 
                     @endforelse

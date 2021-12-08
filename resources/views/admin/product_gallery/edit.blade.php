@@ -88,7 +88,7 @@
 						<div class="col-md-4">
 							<div class="form-group">
 								<label>Upload Image</label>
-								<input type="file" name="image" class="form-control input-bordered">
+								<input type="file" name="image" class="form-control input-bordered" required>
 
 								@if($detail->image)
 								<img width="400px" height="200px" src="{{ asset('images/product').'/'.$detail->image }}" alt="">
@@ -106,13 +106,6 @@
 								<p>N/A</p>
 								@endif
 								
-							</div>
-
-							<div class="form-group">
-								<div class="form-group">
-									<input type="checkbox" value="1" name="featured" id="basic_checkbox" class="filled-in" {{ (is_null($detail->featured) || is_null($detail->featured)==0)?"":"checked" }}>
-									<label for="basic_checkbox" class="mb-0 h-15">Featured</label>
-								</div>
 							</div>
 						
 							<div class="form-group">
