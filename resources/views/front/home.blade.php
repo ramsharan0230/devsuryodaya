@@ -132,12 +132,12 @@
 
           @endforelse
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
           <i class="bi bi-caret-left"></i>
         </button>
         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
           <i class="bi bi-caret-right"></i>
-        </button>
+        </button> -->
       </div>
 
     </div>
