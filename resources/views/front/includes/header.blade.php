@@ -33,13 +33,8 @@
               @if(count($category->subcategories) > 0)
               <ul>
                 @foreach ($category->subcategories as $subcategory)
-                <li class="dropdown"><a href=" {{ route('productBySubcategory', $subcategory->slug) }}"><span> {{ $subcategory->name}} </span><i class="bi bi-chevron-right"></i></a>
-                  <ul>
-                    <li><a href="#">submenu ko submenu1</a>
-                    </li>
-                    <li><a href="#">submenu ko submenu2</a></li>
-                  </ul>
-                  @endforeach
+                  <li class="dropdown"><a href=" {{ route('productBySubcategory', $subcategory->slug) }}"><span> {{ $subcategory->name}} </span></a>
+                @endforeach
               </ul>
               @endif
             </li>
