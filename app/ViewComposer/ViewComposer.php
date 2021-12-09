@@ -42,7 +42,11 @@ class ViewComposer
         $clients = $this->client->limit(6)->where('publish', 1)->orderBy('created_at', 'DESC')->get();
         $sliders = $this->slider->where('publish', 1)->limit(10)->orderBy('created_at', 'DESC')->get();
         $featuredProducts = $this->product->where(['publish'=> 1, 'featured'=>1])->limit(10)->orderBy('created_at', 'DESC')->get();
-        $categories = $this->category->where('publish', 1)->limit(10)->orderBy('order', 'ASC')->get();
+        $categories = $this->category->where('publish', 1)->with('subcategories',function($query){
+            return $query->where('publish','=',1)->with('products',function($q){
+                return $q->where('publish','=',1);
+            });
+        })->orderBy('order', 'ASC')->get();
         $about = $this->about->first();
 
         $siteSettings = $this->site_setting->where('publish', 1)->first();

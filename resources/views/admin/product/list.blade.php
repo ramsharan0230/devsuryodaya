@@ -26,7 +26,7 @@
 								<th>S.N.</th>
 								<th>Title</th>
 								<th>Author</th>
-								<th>Descriptions</th>
+								<!-- <th>Descriptions</th> -->
 								<th>Image</th>
 								<th>Catalog</th>
 								<th>Featured</th>
@@ -40,7 +40,7 @@
                         	<td>{{$key+1}}</td>
 				            <td>{{$detail->title}}</td>
 							<td>{{@$detail->user->name}}</td>
-							<td>{!! $detail->description !!}</td>
+							<!-- <td>{!! $detail->description !!}</td> -->
 				            <td>@if($detail->image)
 								<img width="100" height="100" src="{{asset('images/product/'.$detail->image)}}">
 								@else
