@@ -98,14 +98,10 @@
 
 							<div class="form-group">
 								<label>Upload Catalog</label>
-								
-								@if($detail->catalog !==null)
-								<input type="file" name="catalog_file" class="form-control input-bordered" value="{{ $detail->catalog->catalog_file }}">
-									{{ $detail->catalog->title }} ({{ $detail->catalog->catalog_file }})
-								@else
-								<p>N/A</p>
+								<input type="file" name="catalog_file" class="form-control input-bordered" >
+								@if($detail->catalog !=null)
+								<span>{{ $detail->catalog->catalog_file}}</span>
 								@endif
-								
 							</div>
 
 							<div class="form-group">

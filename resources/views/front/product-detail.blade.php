@@ -95,22 +95,18 @@
                         <p class="description">{!! $product->description !!}</p>
                     </div>
 
-                    @forelse ($product->catalogs as $catalog)
-                    @if($catalog->catalog_file !=null)
+                    @if($product->catalog !=null)
                     <div class="alert alert-secondary" role="alert">
                         <div class="row">
                             <div class="col-sm-8">
-                                <span>{{ $catalog->title }}</span>
+                                <span>{{ $product->catalog->title }}</span>
                             </div>
                             <div class="col-sm-4">
-                                <a href="{{ $catalog->catalog_file }}" download class="btn btn-secondary btn-sm float-end"><i class="fa fa-download"></i> Download</a>
+                                <a href="{{$product->catalog->catalog_file }}" download class="btn btn-secondary btn-sm float-end"><i class="fa fa-download"></i> Download</a>
                             </div>
                         </div>
                     </div>
                     @endif
-                    @empty
-
-                    @endforelse
 
 
 
