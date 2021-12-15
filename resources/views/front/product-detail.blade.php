@@ -102,7 +102,7 @@
                                 <span>{{ $product->catalog->title }}</span>
                             </div>
                             <div class="col-sm-4">
-                                <a href="{{$product->catalog->catalog_file }}" download class="btn btn-secondary btn-sm float-end"><i class="fa fa-download"></i> Download</a>
+                                <a href="{{$product->catalog->catalog_file }}" target='_blank' download class="btn btn-secondary btn-sm float-end"><i class="fa fa-download"></i> Download</a>
                             </div>
                         </div>
                     </div>
