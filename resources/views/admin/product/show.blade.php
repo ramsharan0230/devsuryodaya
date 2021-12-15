@@ -9,9 +9,13 @@
 
 @section('content')
     <div class="bg-light p-4 rounded">
-        <h2>Show Product detail</h2>
-        <div class="lead">
-            
+        <div class="row">
+            <div class="col-sm-9">
+                <h2>Show Product detail</h2>
+            </div>
+            <div class="col-sm-3">
+                <a href="{{ route('admin.product.add-gallery', $detail->id)}}" class="btn btn-primary btn-sm">Add Gallery</a>
+            </div>
         </div>
         
         <div class="container mt-4">
@@ -43,6 +47,7 @@
                     <img class="img-thumbnail" src="{{ asset('images/product').'/'.$detail->image }}" alt="">
                 </div>
             </div>
+           @if($detail->catalogs !=null)
             <div class="row">
                 @forelse ($detail->catalogs as $item)
                     @if($item->catalog_file)
@@ -52,6 +57,7 @@
                     <p>No catalog found</p>
                 @endforelse
             </div>
+            @endif
             
         </div>
 

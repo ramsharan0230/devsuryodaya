@@ -181,6 +181,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             Route::put('/{id}/update', [ProductController::class, 'update'])->name('update');
             Route::delete('/{id}/delete', [ProductController::class, 'destroy'])->name('destroy'); 
             Route::get('category/{id}/product-veriety', [ProductController::class, 'categoryByProductVeriety'])->name('category.product-veriety');
+            Route::get('/{id}/add-gallery', [ProductController::class, 'addGalleryToProduct'])->name('add-gallery');
+
         });
 
         //product gallery

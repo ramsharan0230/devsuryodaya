@@ -25,9 +25,9 @@
 							<tr>
 								<th>S.N.</th>
 								<th>Title</th>
-								<th>Author</th>
-								<!-- <th>Descriptions</th> -->
 								<th>Image</th>
+								<th>Subcategory</th>
+								<th>Order</th>
 								<th>Catalog</th>
 								<th>Featured</th>
 								<th>Status</th>
@@ -39,14 +39,15 @@
                         <tr>
                         	<td>{{$key+1}}</td>
 				            <td>{{$detail->title}}</td>
-							<td>{{@$detail->user->name}}</td>
-							<!-- <td>{!! $detail->description !!}</td> -->
-				            <td>@if($detail->image)
+							<td>@if($detail->image)
 								<img width="100" height="100" src="{{asset('images/product/'.$detail->image)}}">
 								@else
 								<p>N/A</p>
 								@endif
 				            </td>
+				            <td>{{$detail->subcategory->name}}</td>
+				            <td>{{$detail->order}}</td>
+				            
 							<td>
 								@if($detail->catalog)
 									{{ $detail->catalog->title }} ({{ $detail->catalog->catalog_file }})
@@ -70,13 +71,20 @@
 				            </td>
 
 				            <td>
-				            	<a class="btn btn-info edit" href="{{route('admin.product.edit', $detail->id)}}" title="Edit">Edit</a>
-				            	<form method= "post" action="{{route('admin.product.destroy', $detail->id)}}" class="delete">
-									{{csrf_field()}}
-									<input type="hidden" name="_method" value="DELETE">
-									<button type="submit" class="btn  btn-danger btn-delete" data-confirm="Are you sure to delete this item?" style="display:inline">Delete</button>
-               				    </form>
-								<a class="btn btn-warning" href="{{route('admin.product.show', $detail->id)}}" title="Show">Show</a>
+				            	<div class="row">
+									<div class="col-sm-9">
+										<a class="btn btn-info edit pull-right " href="{{route('admin.product.edit', $detail->id)}}" title="Edit">Edit</a>
+										<a class="btn btn-warning pull-right " href="{{route('admin.product.show', $detail->id)}}" title="Show">Show</a>
+										<a class="btn btn-primary pull-right" href="{{ route('admin.product.add-gallery', $detail->id)}}" title="Add Gallery">Add Gallery</a>
+									</div>
+									<div class="col-sm-3">
+										<form method= "post" action="{{route('admin.product.destroy', $detail->id)}}" class="delete">
+											{{csrf_field()}}
+											<input type="hidden" name="_method" value="DELETE">
+											<button type="submit" class="btn  btn-danger btn-delete" data-confirm="Are you sure to delete this item?" style="display:inline">Delete</button>
+										</form>
+									</div>
+								</div>
 				            </td>
 				            
                         </tr>

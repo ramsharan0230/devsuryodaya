@@ -76,19 +76,24 @@ class ProductController extends Controller
 
         //data for catalogs
         $product = $this->product->first();
-        $catalog['title'] = $request->title;
-        $catalog['slug'] = Str::slug($request->title);
-
         if($request->hasFile('catalog_file')){
+            $catalog['title'] = $request->title;
+            $catalog['slug'] = Str::slug($request->title);
             $fileName = time().'.'.$request->catalog_file->extension();  
             $request->catalog_file->move(public_path('catalogs'), $fileName);
             $catalog['catalog_file'] = $fileName;
-        }
 
-        $catalog['order'] = $request->order;
-        $catalog['publish'] = $value['publish'];
-        $catalog['product_id'] = $product->id;
-        $this->catalog->create($catalog);
+            $catalog['order'] = $request->order;
+            $catalog['publish'] = $value['publish'];
+            $catalog['product_id'] = $product->id;
+            $this->catalog->create($catalog);
+        }
+        // create gallery
+        $gallery['image'] = $value['image'];
+        $gallery['order'] = $request->order;
+        $gallery['publish'] = $value['publish'];
+        $gallery['product_id'] = $product->id;
+        $this->pgallery->create($gallery);
 
         return redirect()->route('admin.product.index')->with('message','Product Added Successfully');
     }
@@ -153,8 +158,8 @@ class ProductController extends Controller
             $fileName = time().'.'.$request->catalog_file->extension();  
             $request->catalog_file->move(public_path('catalogs'), $fileName);
             $cat['catalog_file'] = $fileName;
-        }
-;
+        };
+
         $cat['order'] = $request->order;
         $cat['publish'] = $value['publish'];
         $cat['product_id'] = $id;
@@ -176,15 +181,17 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        $value['status'] =0;
-        $this->product->update($value, $id);
-
         $image=$this->product->find($id);
         if($image->image){
             $thumbPath = public_path('images/product');
+            $thumbGalleyPath = public_path('images/product_gallery');
             
             if((file_exists($thumbPath.'/'.$image->image))){
                 unlink($thumbPath.'/'.$image->image);
+            }
+
+            if((file_exists($thumbGalleyPath.'/'.$image->image))){
+                unlink($thumbGalleyPath.'/'.$image->image);
             }
         }
         $this->product->destroy($id);
@@ -193,12 +200,18 @@ class ProductController extends Controller
         if($checkCatalog)
             $this->catalog->destroy($checkCatalog->id);
         
+        $pgallery = $this->pgallery->where('product_id', $id)->delete();
+        
         return redirect()->route('admin.product.index')->with('message','Product Deleted Successfully');
     }
 
     public function categoryByProductVeriety($id){
         $categories = $this->category->where('subcategory_id', $id)->get();
         return response()->json(['data'=>$categories, 'status'=>200], 200);
+    }
+
+    public function addGalleryToProduct($product_id){
+        return view('admin.product_gallery.create', compact('product_id')); 
     }
 
 
@@ -209,7 +222,13 @@ class ProductController extends Controller
             mkdir($thumbPath, 0755, true);
         }
        $img1 = Image::make($image->getRealPath());
-       $img1->fit(526, 526)->save($thumbPath.'/'.$input['imagename']);
+       $img1->save($thumbPath.'/'.$input['imagename']);
+
+       $thumbGalleryPath = public_path('images/product_gallery');
+        if (!file_exists($thumbGalleryPath)) {
+            mkdir($thumbGalleryPath, 0755, true);
+        }
+       $img1->save($thumbGalleryPath.'/'.$input['imagename']);
        
       
        $destinationPath = public_path('/images');
@@ -222,6 +241,7 @@ class ProductController extends Controller
             'title' => 'required|max:255',
             'image'=>'sometimes|mimes:jpeg,bmp,png,jpg',
             'short_description'=>'sometimes|max: 2500',
+            'order'=>'required|Integer',
             'description'=>'sometimes|max:15000',
             'subtitle' => 'sometimes|max:199',
             'subcategory_id' =>'required|numeric',

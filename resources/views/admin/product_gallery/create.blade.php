@@ -46,6 +46,9 @@
 					{{csrf_field()}}
 					<div class="row">
 						<div class="col-md-12">
+							@if(isset($product_id))
+								<input type="hidden" name="product_id" id="product_id" value="{{ $product_id }}" class="form-control input-bordered">
+							@else
 							<div class="form-group">
 								<label for="product_id">Select Product (required)</label>
 								<select name="product_id" id="product_id" class="form-control input-bordered">
@@ -55,6 +58,8 @@
 									@endforeach
 								</select>
 							</div>
+							@endif
+							
 						
 							<div class="form-group multiple-file-uploads">
 								<button type="button" id="addUpload" class="btn btn-primary btn-sm">
