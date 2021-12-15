@@ -108,11 +108,9 @@ class SubcategoryController extends Controller
 
     public function destroy($id)
     {
-        $value['status'] =0;
-        $this->category->update($value, $id);
-
-        $this->category->destroy($id);
-        return redirect()->route('admin.category.index')->with('message','Subcategory Deleted Successfully');
+        $id = (int) $id;
+        $this->subcategory->destroy($id);
+        return redirect()->route('admin.subcategory.index')->with('message','Subcategory Deleted Successfully');
     }
 
     public function imageProcessing($image){

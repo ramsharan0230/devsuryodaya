@@ -8,6 +8,7 @@ use App\Repositories\Product\ProductRepository;
 use App\Repositories\Subcategory\SubcategoryRepository;
 use App\Repositories\Service\ServiceRepository;
 use App\Repositories\Catalog\CatalogRepository;
+use App\Repositories\ProductGallery\ProductGalleryRepository;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Str;
@@ -18,14 +19,16 @@ class ProductController extends Controller
     protected $category;
     protected $subcategory;
     private $service;
+    protected $pgallery;
 
     public function __construct(ProductRepository $product, ServiceRepository $service, CategoryRepository $category, 
-    SubcategoryRepository $subcategory, CatalogRepository $catalog){
+    SubcategoryRepository $subcategory, CatalogRepository $catalog, ProductGalleryRepository $productGallery){
         $this->product = $product;
         $this->category = $category;
         $this->subcategory = $subcategory;
         $this->service = $service;
         $this->catalog = $catalog;
+        $this->pgallery = $productGallery;
     }
 
     public function index()
