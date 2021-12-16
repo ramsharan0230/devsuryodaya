@@ -102,7 +102,9 @@
                                 <span>{{ $product->catalog->title }}</span>
                             </div>
                             <div class="col-sm-4">
-                                <a href="{{$product->catalog->catalog_file }}" target='_blank' download class="btn btn-secondary btn-sm float-end"><i class="fa fa-download"></i> Download</a>
+                                <b>
+                                    <a href="{{ asset('catalogs').'/'.$product->catalog->catalog_file }}" target="_blank" class="btn btn-secondary btn-sm float-end"><i class="fa fa-eye"></i> View</a>
+                                </b>
                             </div>
                         </div>
                     </div>
