@@ -47,7 +47,7 @@
               @endif
             </li>
             @endforeach
-
+            <li><a href="{{ route('catalog') }}">Catalogs</a></li>
           </ul>
         </li>
         <li class=" dropdown"><a href="{{ route('services') }}"><span>Services</span></a>

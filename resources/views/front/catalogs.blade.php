@@ -54,7 +54,9 @@
                 </div>
               </div>
             @empty
-                
+            <div class="catalog-img">
+              <p class="text-danger">No Catalog</p>
+            </div>
             @endforelse
         
         </div>
