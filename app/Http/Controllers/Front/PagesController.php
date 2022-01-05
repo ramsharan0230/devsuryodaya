@@ -95,7 +95,7 @@ class PagesController extends Controller
 
     public function newsEvent(){
         $newsEvents = NewsEvent::where('publish', 1)->orderBy('order', 'desc')->paginate(6);
-        $recentNewsEvent = NewsEvent::where('publish', 1)->orderBy('created_at', 'desc')->get();
+        $recentNewsEvent = NewsEvent::where('publish', 1)->orderBy('created_at', 'desc')->skip(5)->take(5)->get();
         return view('front.news-event', compact('newsEvents', 'recentNewsEvent'));
     }
 
@@ -114,7 +114,7 @@ class PagesController extends Controller
         })->orderBy('created_at', 'DESC')->take(5)->get();
 
         if(count($reletedNewsEvents)==0){
-            $reletedNewsEvents = NewsEvent::where('publish', 1)->whereNotIn('id', [$newsEvent->id])->orderBy('created_at', 'DESC')->take(5)->get();
+            $reletedNewsEvents = NewsEvent::where('publish', 1)->whereNotIn('id', [$newsEvent->id])->orderBy('created_at', 'DESC')->slice(1, 4)->take(5)->get();
         }
         return view('front.news-event-detail', compact('newsEvent', 'reletedNewsEvents'));
     }
