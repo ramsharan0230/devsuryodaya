@@ -45,7 +45,7 @@
   
                 <div class="entry-meta">
                   <ul>
-                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="{{ route('news-event-detail', $newsEvent->slug) }}">John Doe</a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="{{ route('news-event-detail', $newsEvent->slug) }}">{{ $newsEvent->user->name }}</a></li>
                     <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="{{ route('news-event-detail', $newsEvent->slug) }}">
                         <time datetime="2021-01-01">{{ $newsEvent->created_at->format('d M, Y') }}</time>
                     </a></li>

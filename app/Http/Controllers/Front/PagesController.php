@@ -105,12 +105,18 @@ class PagesController extends Controller
             return view('front.page-not-found'); 
         
         $title = $newsEvent->title;
-        $reletedNewsEvents = NewsEvent::where('publish', 1)->whereNotIn('id', [$newsEvent->id])->where(function($query) use ($title) {
+        $reletedNewsEvents = NewsEvent::where('publish', 1)->whereNotIn('id', [$newsEvent->id])
+        ->where(function($query) use ($title) {
             $query->where('title', 'LIKE', '%'.$title.'%')
+                ->orWhere('subtitle', 'LIKE', '%'.$title.'%')
                 ->orWhere('description', 'LIKE', '%'.$title.'%')
                 ->orWhere('short_description', 'LIKE', '%'.$title.'%');
-        })->take(4)->get();
-        return view('front.blog-detail', compact('blog', 'reletedBlogs'));
+        })->orderBy('created_at', 'DESC')->take(5)->get();
+
+        if(count($reletedNewsEvents)==0){
+            $reletedNewsEvents = NewsEvent::where('publish', 1)->whereNotIn('id', [$newsEvent->id])->orderBy('created_at', 'DESC')->take(5)->get();
+        }
+        return view('front.news-event-detail', compact('newsEvent', 'reletedNewsEvents'));
     }
 
     public function blogs(){
