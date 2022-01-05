@@ -114,7 +114,7 @@ class PagesController extends Controller
         })->orderBy('created_at', 'DESC')->take(5)->get();
 
         if(count($reletedNewsEvents)==0){
-            $reletedNewsEvents = NewsEvent::where('publish', 1)->whereNotIn('id', [$newsEvent->id])->orderBy('created_at', 'DESC')->slice(1, 4)->take(5)->get();
+            $reletedNewsEvents = NewsEvent::where('publish', 1)->whereNotIn('id', [$newsEvent->id])->orderBy('created_at', 'DESC')->take(5)->get();
         }
         return view('front.news-event-detail', compact('newsEvent', 'reletedNewsEvents'));
     }
