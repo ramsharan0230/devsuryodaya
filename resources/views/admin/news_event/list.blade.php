@@ -26,6 +26,7 @@
 								<th>S.N.</th>
 								<th>Title</th>
 								<th>Subtitle</th>
+								<th>Order</th>
 								<th>Short Description</th>
 								<th>Descriptions</th>
 								<th>Image</th>
@@ -39,6 +40,7 @@
                         	<td>{{$key+1}}</td>
 				            <td>{{$detail->title}}</td>
 							<td>{{@$detail->subtitle}}</td>
+							<td>{{@$detail->order}}</td>
 							<td>{!! $detail->short_description !!}</td>
 							<td>{!! $detail->description !!}</td>
 				            <td>@if($detail->image)

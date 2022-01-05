@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Repositories\NewsEvent\NewsEventRepository;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Str;
-use DB;
+use DB, Auth;
 
 class NewsEventController extends Controller
 {
@@ -164,6 +164,7 @@ class NewsEventController extends Controller
 
         $rules =  [
             'title' => 'required|max:255',
+            'subtitle' => 'sometimes|max:255',
             'type' => 'required|in:news,event',
             'image'=>'sometimes|mimes:jpeg,bmp,png,jpg',
             'short_description'=>'sometimes|max: 2500',

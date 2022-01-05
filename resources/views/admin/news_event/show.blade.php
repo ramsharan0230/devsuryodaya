@@ -24,6 +24,10 @@
                     </div>
 
                     <div>
+                        <p>Order: <b>{!! $detail->order !!}</b></p>
+                    </div>
+
+                    <div>
                         <p>Slug: <b>{!! $detail->slug !!}</b></p>
                     </div>
                     
@@ -35,7 +39,7 @@
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <img class="img-thumbnail" src="{{ asset('images/news-event').'/'.$detail->image }}" alt="">
+                    <img class="img-thumbnail" src="{{asset('images/news_event/'.$detail->image)}}" alt="">
                 </div>
             </div>
             

@@ -88,19 +88,6 @@
 								@endif
 							</div>
 						
-
-							<div class="form-group">
-								<label>Upload Catalog</label>
-								
-								@if($detail->catalog !==null)
-								<input type="file" name="catalog_file" class="form-control input-bordered" value="{{ $detail->catalog->catalog_file }}">
-									{{ $detail->catalog->title }} ({{ $detail->catalog->catalog_file }})
-								@else
-								<p>N/A</p>
-								@endif
-								
-							</div>
-						
 							<div class="form-group">
 								<input type="checkbox" name="publish" id="basic_checkbox_1" class="filled-in" {{ is_null($detail->publish)?"":"checked" }}>
 								<label for="basic_checkbox_1" class="mb-0 h-15">Publish</label>
