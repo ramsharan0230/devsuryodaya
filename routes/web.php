@@ -273,6 +273,10 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
         Route::delete('contact/{id}/destroy', [ContactController::class, 'destroy'])->name('contact.destroy');
         });
+
+        //subscriptions
+        Route::get('subscriptions', [ContactController::class, 'subscription'])->name('subscriptions');
+        
     });
 
 });

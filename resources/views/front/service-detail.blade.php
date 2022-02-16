@@ -31,7 +31,7 @@
           <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
             <div class="items-detail " data-aos="fade-up">
               <h2>{{ $service->title }}</h2>
-              <time><i class="fal fa-alarm-exclamation"></i> <strong>{{ $service->created_at->format('M, d Y H:i:s A') }}</strong></time>
+              {{-- <time><i class="fal fa-alarm-exclamation"></i> <strong>{{ $service->created_at->format('M, d Y H:i:s A') }}</strong></time> --}}
               <p class="description">
                   {!! $service->description !!}
               </p><br><br>
@@ -43,7 +43,7 @@
     </section><!-- service detail-section -->
 
      <!-- ======= Catalog Download ======= -->
-    <section id="catlog-section" class="catlog-section">
+    {{-- <section id="catlog-section" class="catlog-section">
       <div class="container">
         <div class="section-title aos-init aos-animate" data-aos="fade-up">
           <h2>Service Related Products</h2>
@@ -67,7 +67,7 @@
 
         </div>
       </div>
-    </section><!-- Catalog Download -->
+    </section><!-- Catalog Download --> --}}
 
 
   </main><!-- End #main -->

@@ -25,9 +25,12 @@
 							<tr>
 								<th>S.N.</th>
 								<th>Title</th>
+								<th>Link Title</th>
+								<th>Link</th>
+								<th>Order</th>
+								<th>Short Description</th>
 								<th>Descriptions</th>
 								<th>Image</th>
-								<th>Order</th>
 								<th>Status</th>
                                 <th>Action</th>
 							</tr>
@@ -38,14 +41,18 @@
                         <tr>
                         	<td>{{$i++}}</td>
 				            <td>{{$detail->title}}</td>
-							<td>{!! $detail->description !!}</td>
-				            <td>@if($detail->image)
+				            <td>{{$detail->link_title}}</td>
+				            <td>{{$detail->link}}</td>
+							<td>{{ $detail->order }}</td>
+				            <td>{{$detail->short_description}}</td>
+							<td>{!! \Illuminate\Support\Str::limit($detail->description, 75, $end='...') !!}</td>
+				            <td>
+								@if($detail->image)
 								<img width="100" height="100" src="{{asset('images/slider/'.$detail->image)}}">
 								@else
 								<p>N/A</p>
 								@endif
 				            </td>
-							<td>{{ $detail->order }}</td>
 				            <td>
 				            	@if((int) $detail->publish==1)
 				            	<span class="label label-primary">Active</span>

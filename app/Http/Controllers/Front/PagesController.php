@@ -15,6 +15,9 @@ use App\Models\Video;
 use App\Models\Catalog;
 use App\Models\Category;
 use App\Models\Subcategory;
+use App\Mail\SubscriptionMail;
+use App\Services\PayUService\Exception;
+
 
 use Illuminate\Support\Facades\Validator;
 
@@ -45,7 +48,9 @@ class PagesController extends Controller
         }
 
         $value = $request->all();
+
         Contact::Create($value);
+
         return redirect()->back()->with('message','Contact Added Successfully');
     }
 
@@ -61,6 +66,17 @@ class PagesController extends Controller
         }
 
         $value = $request->all();
+        $details = [
+            'title' => 'Mail from Suryodaya.com.np',
+            'body' => 'Thank you for subscribing.'
+        ];
+
+        try {
+            \Mail::to($request->email)->send(new SubscriptionMail($details));
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+
         Subscription::Create($value);
         return redirect()->back()->with('message','Subscribed Successfully');
     }

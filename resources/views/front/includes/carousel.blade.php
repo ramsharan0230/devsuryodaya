@@ -7,8 +7,17 @@
         <div class="carousel-item {{ $key==0?'active':'' }}" style="background-image: url({{ asset('images/slider').'/'.$slider->image }});">
             <div class="carousel-container">
             <div class="carousel-content animate__animated animate__fadeInUp">
-                <h2>{{ $slider->title }}</h2>
-                <p>{{ $slider->short_description }}</p>
+              <div class="row">
+                <div class="col-sm-9">
+                  <h2>{{ $slider->title }}</h2>
+                  <h5 >{!! $slider->short_description !!}</h5>
+                  <p>{!! \Illuminate\Support\Str::limit($slider->description, 100, $end='...') !!}</p>
+                </div>
+                <div class="col-sm-3">
+                  <a href="{{ $slider->link }}" class="btn btn-primary pull-right">{{ $slider->link_title }}</a>
+                </div>
+              </div>
+                
             </div>
             </div>
         </div>

@@ -40,6 +40,21 @@
 								<input type="text" name="title" class="form-control input-bordered" value="{{$detail->title}}">
 							</div>
 
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label>Link Title</label>
+										<input type="text" name="link_title" class="form-control input-bordered" placeholder="Link Title ..." value="{{$detail->link_title}}">
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label>Link</label>
+										<input type="text" name="link" class="form-control input-bordered" placeholder="Link  ..." value="{{$detail->link}}">
+									</div>
+								</div>
+							</div>
+
 							<div class="form-group">
 								<label>Short Description</label>
 								<input class="form-control input-bordered" name="short_description" value="{{$detail->short_description}}" />

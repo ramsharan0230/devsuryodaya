@@ -15,6 +15,8 @@ class Slider extends Model
         'short_description',
         'description',
         'image',
+        'link_title',
+        'link',
         'order',
         'user_id',
         'publish'

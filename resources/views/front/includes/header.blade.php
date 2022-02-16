@@ -21,7 +21,7 @@
     <div class="logo">
       <!-- <h1 class="text-light"><a href="index.html">Suryodaya</a></h1> -->
       <!-- Uncomment below if you prefer to use an image logo -->
-      <a href="{{ route('home') }}"><img src="{{asset('/assets/img/logo.jpeg')}}" alt="" class="img-fluid"></a>
+      <a href="{{ route('contact') }}"><img src="{{asset('/assets/img/logo.jpeg')}}" alt="" class="img-fluid"></a>
     </div>
     <nav id="navbar" class="navbar">
       <ul>

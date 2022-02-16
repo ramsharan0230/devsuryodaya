@@ -6,5 +6,5 @@
 		  </li>
 		</ul>
     </div>
-	  &copy; <script>document.write(new Date().getFullYear())</script> <a href="#">Suryodaya Inc.</a> All Rights Reserved.
+	  &copy; <script>document.write(new Date().getFullYear())</script> <a href="#">Suryodaya Inc. Pvt. Ltd.</a> All Rights Reserved.
   </footer>

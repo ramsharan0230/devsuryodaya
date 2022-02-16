@@ -96,7 +96,7 @@
 					</ul>
 				</li>
 
-				<li class="treeview">
+				{{-- <li class="treeview">
 				  <a href="#">
 					<i data-feather="bold"></i>
 					<span>Blogs</span>
@@ -108,7 +108,7 @@
 					<li><a href="{{ route('admin.blog.index') }}"><i data-feather="list"><span class="path1"></span><span class="path2"></span></i> List</a></li>
 					<li><a href="{{ route('admin.blog.create') }}"><i data-feather="plus-square"><span class="path1"></span><span class="path2"></span></i> Add Blog</a></li>					
 				  </ul>
-				</li>
+				</li> --}}
 
 				<li class="treeview">
 					<a href="#">
@@ -235,18 +235,15 @@
 					  <li><a href="{{ route('admin.video.create') }}"><i data-feather="plus-square"><span class="path1"></span><span class="path2"></span></i> Add Video</a></li>					
 					</ul>
 				  </li>
-
-				  <li class="treeview">
-					<a href="#">
-					  <i data-feather="file-text"></i>
-					  <span>Contact</span>
+				  
+				  <li >
+					<a href="{{ route('admin.subscriptions') }}">
+						<i data-feather="list"><span class="path1"></span><span class="path2"></span></i>
+					  <span>Subscriptions</span>
 					  <span class="pull-right-container">
 						<i class="fa fa-angle-right pull-right"></i>
 					  </span>
 					</a>
-					<ul class="treeview-menu">					
-					  <li><a href="{{ route('admin.contact.index') }}"><i data-feather="list"><span class="path1"></span><span class="path2"></span></i> Contacts</a></li>
-					</ul>
 				  </li>
 			  </ul>
 		  </div>

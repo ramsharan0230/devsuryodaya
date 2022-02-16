@@ -22,8 +22,8 @@
             <li><i class="bx bx-chevron-right"></i> <a href="{{ route('products') }}">Products</a></li>
             <li><i class="bx bx-chevron-right"></i> <a href="{{ route('catalog') }}">Catalogs</a></li>
             <li><i class="bx bx-chevron-right"></i> <a href="{{ route('services') }}">Services</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            {{-- <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li> --}}
           </ul>
         </div>
 
@@ -64,7 +64,7 @@
 
     <div class="me-md-auto text-center text-md-start">
       <div class="copyright">
-        2021 &copy; Copyright <strong><span>Suryodaya Inc</span></strong>. All Rights Reserved
+        2021 &copy; Copyright <strong><span>Suryodaya Inc. Pvt. Ltd.</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
         Designed by <a target="_blank" href="https://www.itconcerns.com.np/">IT Concerns</a>

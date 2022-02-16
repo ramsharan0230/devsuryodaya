@@ -71,7 +71,7 @@
         </div>
       </div>
 
-      <div class="col-xl-3 col-sm-3 col-12">			
+      {{-- <div class="col-xl-3 col-sm-3 col-12">			
         <div class="box pull-up">
             <div class="box-body">
                 <div class="flex-column">
@@ -88,7 +88,7 @@
                 </div>
             </div>
         </div>
-      </div>
+      </div> --}}
 
       <div class="col-xl-3 col-sm-3 col-12">			
         <div class="box pull-up">

@@ -37,6 +37,21 @@
 								<label for="title">Title (required)</label>
 								<input type="text" name="title" class="form-control input-bordered" value="{{old('title')}}" placeholder="Enter title...">
 							</div>
+
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label>Link Title</label>
+										<input type="text" name="link_title" class="form-control input-bordered" placeholder="Link Title ...">
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label>Link</label>
+										<input type="text" name="link" class="form-control input-bordered" placeholder="Link  ...">
+									</div>
+								</div>
+							</div>
 							
 							<div class="form-group">
 								<label>Short Description</label>
@@ -47,6 +62,7 @@
 								<textarea class="form-control input-bordered" name="description" id="editor" rows="3">{{old('description')}}</textarea>
 							</div>
 						</div>
+						
 						<div class="col-md-4">
 								<div class="form-group">
 									<label>Upload Image</label>
@@ -57,14 +73,14 @@
 									<label for="order">Order</label>
 									<input type="text" name="order" id="order" class="form-control input-bordered" placeholder="Type Order ...">
 								</div>
-							</div>
+						</div>
 
+						<div class="form-group">
 							<div class="form-group">
-								<div class="form-group">
-									<input type="checkbox" value="1" name="publish" id="basic_checkbox_1" class="filled-in" checked>
-									<label for="basic_checkbox_1" class="mb-0 h-15">Publish</label>
-								</div>
+								<input type="checkbox" value="1" name="publish" id="basic_checkbox_1" class="filled-in" checked>
+								<label for="basic_checkbox_1" class="mb-0 h-15">Publish</label>
 							</div>
+						</div>
 							<div class="form-group">
 								<input type="submit" name="" class="btn btn-success">
 							</div>

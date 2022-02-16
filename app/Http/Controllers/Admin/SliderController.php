@@ -140,6 +140,8 @@ class SliderController extends Controller
 
         $rules =  [
             'title' => 'required',
+            'link_title' => 'sometimes|max:199',
+            'link' => 'sometimes|max:499',
             'image'=>'required|mimes:jpeg,bmp,png,jpg',
             'short_description'=>'sometimes|max: 2500',
             'description'=>'sometimes|max:15000'

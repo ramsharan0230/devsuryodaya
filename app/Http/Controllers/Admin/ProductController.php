@@ -33,7 +33,7 @@ class ProductController extends Controller
 
     public function index()
     {
-        $details=$this->product->orderBy('order', 'desc')->get();
+        $details=$this->product->orderBy('updated_at', 'desc')->get();
         return view('admin.product.list', compact('details'));
     }
 
