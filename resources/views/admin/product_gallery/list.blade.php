@@ -40,7 +40,7 @@
 								<p>N/A</p>
 								@endif
 				            </td>
-							<td>{{ $detail->product->title }}</td>
+							<td>{{ @$detail->product->title }}</td>
 							
 				            <td>
 				            	@if((int) $detail->publish == 1)
